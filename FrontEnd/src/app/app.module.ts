@@ -11,7 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './elements/navbar/navbar.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 import { ArticleComponent } from './pages/article/article.component';
-
+import { CourseComponent } from './pages/course/course.component';
 
 
 
@@ -21,7 +21,8 @@ import { ArticleComponent } from './pages/article/article.component';
     NavbarComponent,
     HomeComponent,
     ArticleComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    CourseComponent
    ],
   imports: [
     BrowserModule,
