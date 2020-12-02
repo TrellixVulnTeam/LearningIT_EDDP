@@ -11,6 +11,7 @@ const CHAPTERS = [
   {id: 8, title: 'Chapter 8', content: 'Content chapter 8'}
 ];
 
+
 @Component({
   selector: 'app-course , chapters',
   templateUrl: './course.component.html',
@@ -18,11 +19,15 @@ const CHAPTERS = [
 })
 export class CourseComponent {
   chapters = CHAPTERS;
-
+  selectedChapter = '';
 
   // tslint:disable-next-line: typedef
   onclick(clickedid) {
-    alert(clickedid);
+    for(let item of this.chapters)
+    {
+      if(item.id == clickedid) this.selectedChapter = item.content;
+    }
+
   }
 }
 
