@@ -18,6 +18,7 @@ import { CourseComponent } from './pages/course/course.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     NavbarComponent,
     HomeComponent,
     ArticleComponent,
