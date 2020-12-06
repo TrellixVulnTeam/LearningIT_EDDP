@@ -1,13 +1,16 @@
-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleComponent } from './pages/article/article.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 import { CourseComponent } from './pages/course/course.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'article', component: ArticleComponent },
   { path: 'leaderboard', component: LeaderboardComponent },

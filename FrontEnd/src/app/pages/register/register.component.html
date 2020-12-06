@@ -1,0 +1,29 @@
+<div class="basic">
+	<div class="col-md-6 offset-md-3 mt-4">
+		<h3>Sign up</h3>
+		<form #f="ngForm">
+			<div class="form-group">
+				<label for="FirstName">First Name</label>
+				<input type="text" name="FirstName" [(ngModel)]="model.FirstName" required #FirstName="ngModel" class="form-control" id="FirstName" placeholder="First Name">
+      </div>
+      <div class="form-group">
+				<label for="LastName">Last Name</label>
+				<input type="text" name="LastName" [(ngModel)]="model.LastName" required #LastName="ngModel" class="form-control" id="LastName" placeholder="Last Name">
+			</div>
+			<div class="form-group">
+				<label for="Email">Email</label>
+				<input type="email" name="Email" [(ngModel)]="model.Email" required #Email="ngModel" class="form-control" id="Email" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label for="Password">Password</label>
+				<input type="password" name="Password" [(ngModel)]="model.Password" required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
+      </div>
+      <div class="form-group">
+				<label for="ConfirmPassword">Confirm Password</label>
+				<input type="password" name="ConfirmPassword" [(ngModel)]="model.ConfirmPassword" required #ConfirmPassword="ngModel" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+			</div>
+      <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="onSubmit()">Sign up<i class="fas fa-sign-in-alt"></i></button>
+      <button class="btn btn-outline-success" routerLink="login">Login</button>
+		</form>
+	</div>
+</div>

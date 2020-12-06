@@ -1,7 +1,8 @@
+import { SecretService } from './../../services/secret.service';
 import { Component, OnInit } from '@angular/core';
 
 const COURSES = [
-  {id: 1, title: 'C#', description: 'DESCRIPTION C#', img: '../../../img/107-script.png'},
+  {id: 1, title: 'C#', description: 'DESCRIPTION C#'},
   {id: 2, title: 'Java', description: 'DESCRIPTION Java'},
   {id: 3, title: 'C++', description: 'DESCRIPTION C++'},
   {id: 4, title: 'C', description: 'DESCRIPTION C'},
@@ -17,7 +18,11 @@ const COURSES = [
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   courses = COURSES;
+  constructor(private secretService: SecretService) {}
+  ngOnInit(): void {
+    this.secretService.getValues().subscribe((secrets) => console.log(secrets));
+  }
 
 }
