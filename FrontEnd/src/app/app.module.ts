@@ -12,6 +12,7 @@ import { NavbarComponent } from './elements/navbar/navbar.component';
 import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { CourseComponent } from './pages/course/course.component';
+import { TeamComponent } from './pages/team/team.component';
 
 
 
@@ -23,7 +24,8 @@ import { CourseComponent } from './pages/course/course.component';
     HomeComponent,
     ArticleComponent,
     LeaderboardComponent,
-    CourseComponent
+    CourseComponent,
+    TeamComponent
    ],
   imports: [
     BrowserModule,
