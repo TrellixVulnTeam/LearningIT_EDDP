@@ -23,9 +23,12 @@ export class CourseComponent {
 
   // tslint:disable-next-line: typedef
   onclick(clickedid) {
-    for(let item of this.chapters)
+    for (const item of this.chapters)
     {
-      if(item.id == clickedid) this.selectedChapter = item.content;
+      // tslint:disable-next-line: triple-equals
+      if (item.id == clickedid) {
+        this.selectedChapter = item.content;
+      }
     }
 
   }
