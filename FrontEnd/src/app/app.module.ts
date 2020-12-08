@@ -34,13 +34,6 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     FormsModule
-    //  RouterModule.forRoot([
-    //    {
-    //      path: 'login',
-    //      component: LoginComponent
-    //    }
-    //  ])
-
   ],
   providers: [
     UserService

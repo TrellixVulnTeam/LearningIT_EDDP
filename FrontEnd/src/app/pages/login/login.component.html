@@ -11,7 +11,7 @@
 				<input type="password" name="Password" ngModel required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
 			</div>
       <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="Login(f)">Login<i class="fas fa-sign-in-alt"></i></button>
-      <button class="btn btn-outline-success" routerLink="register">Sign up</button><br>
+      <a routerLink="/register"><button class="btn btn-outline-success" >Sign up</button><br></a>
       <button class="btn btn-outline-danger" routerLink="article">Forgot Password?</button>
 		</form>
 	</div>
