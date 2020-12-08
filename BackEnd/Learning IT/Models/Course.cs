@@ -16,6 +16,9 @@ namespace Learning_IT.Models
         public string Title { get; set; }
         [Column(TypeName = "nvarchar(256)")]
         public string Description { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
+        public string ImageURL { get; set; }
+
         public virtual IList<UserCourse> UserCourses { get; set; }
         public virtual IList<Chapter> Chapters { get; set; }
     }
