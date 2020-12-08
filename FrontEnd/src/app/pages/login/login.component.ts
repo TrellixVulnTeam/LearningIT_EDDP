@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
     const loginObserver = {
       next: (x) => {
-        alert('Welcome back ' + this.authService.currentUser.Email);
+        alert('Welcome back ' + this.authService.currentUser.FirstName + ' ' + this.authService.currentUser.LastName);
         this.router.navigate(['home']);
         // this.progressService.setSuccess();
         // this.alertService.success('Welcome back' + x.username);

@@ -82,7 +82,16 @@ namespace Learning_IT.Services
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
 
-            if(user == null)
+            User newUser = new User();
+            foreach (var item in _context.Users)
+            {
+                if (item.IdentityId == user.Id)
+                {
+                    newUser = item;
+                }
+            }
+
+            if (user == null)
             {
                 return new UserManagerResponse
                 {
@@ -103,6 +112,8 @@ namespace Learning_IT.Services
             var claims = new[]
             {
                 new Claim("Email", model.Email),
+                new Claim("FirstName", newUser.FirstName),
+                new Claim("LastName", newUser.LastName),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
             };
 

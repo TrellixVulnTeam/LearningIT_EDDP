@@ -14,19 +14,19 @@
 	</button>
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav ml-auto">
-			<a routerLink="home" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
-			<a routerLink="article" class="nav-item nav-link active" ><i class="fa fa-paperclip"></i><span>Articles</span></a>
-			<a routerLink="leaderboard" class="nav-item nav-link active" ><i class="fa fa-users"></i><span>Leaderboard</span></a>
-			<a routerLink="team" class="nav-item nav-link active" ><i class="fa fa-globe"></i><span>Team</span></a>
+			<a routerLink="/home" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
+			<a routerLink="/article" class="nav-item nav-link active" ><i class="fa fa-paperclip"></i><span>Articles</span></a>
+			<a routerLink="/leaderboard" class="nav-item nav-link active" ><i class="fa fa-users"></i><span>Leaderboard</span></a>
+			<a routerLink="/team" class="nav-item nav-link active" ><i class="fa fa-globe"></i><span>Team</span></a>
 			<div class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action">
           <img src="https://scontent.ftsr1-2.fna.fbcdn.net/v/t1.0-9/128851637_3453122531445951_1776703573863513208_o.jpg?_nc_cat=110&ccb=2&_nc_sid=8bfeb9&_nc_ohc=Q54Qj4vjp1QAX9y8zf4&_nc_ht=scontent.ftsr1-2.fna&oh=924e02aa9c25960c02a9d3a975be0343&oe=5FF0DC63" class="avatar" alt="Avatar">
-           {{authService.currentUser.Email}} <b class="caret"></b></a>
+           {{authService.currentUser.FirstName}} {{authService.currentUser.LastName}}<b class="caret"></b></a>
 				<div class="dropdown-menu">
 					<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
 					<a href="#" class="dropdown-item"><i class="fa fa-graduation-cap"></i> My Certificates</a>
 					<div class="divider dropdown-divider"></div>
-					<a routerLink="login" (click)="authService.logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+					<a routerLink="/login" (click)="authService.logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
 				</div>
 			</div>
 		</div>

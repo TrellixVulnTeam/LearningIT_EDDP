@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -16,16 +16,17 @@ export class AuthService {
     FirstName: null,
     LastName: null,
     Email: null,
-    isSuccess: null,
+    isSuccess: null
   };
   constructor( private http: HttpClient) { }
 
-  // tslint:disable-next-line: typedef
   login(model: any): Observable<IUser> {
     return this.http.post(this.appUrl + 'api/auth/login', model).pipe(
       map((response: any) => {
         const decodedToken = this.helper.decodeToken(response.message);
         this.currentUser.Email = decodedToken.Email;
+        this.currentUser.FirstName = decodedToken.FirstName;
+        this.currentUser.LastName = decodedToken.LastName;
         this.currentUser.isSuccess = response.isSuccess;
         localStorage.setItem('message', response.message);
 
@@ -33,6 +34,7 @@ export class AuthService {
       })
     );
   }
+
   loggedIn(): boolean{
     const message = localStorage.getItem('message');
     return !this.helper.isTokenExpired(message);

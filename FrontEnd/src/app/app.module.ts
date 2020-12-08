@@ -36,13 +36,6 @@ import { TeamComponent } from './pages/team/team.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule
-    //  RouterModule.forRoot([
-    //    {
-    //      path: 'login',
-    //      component: LoginComponent
-    //    }
-    //  ])
-
   ],
   providers: [
     UserService
