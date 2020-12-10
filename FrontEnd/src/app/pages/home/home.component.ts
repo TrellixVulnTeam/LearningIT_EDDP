@@ -1,17 +1,9 @@
+import { ICourses } from './../../services/ICourses';
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { SecretService } from './../../services/secret.service';
 import { Component, OnInit } from '@angular/core';
-
-const COURSES = [
-  {id: 1, title: 'C#', description: 'DESCRIPTION C#'},
-  {id: 2, title: 'Java', description: 'DESCRIPTION Java'},
-  {id: 3, title: 'C++', description: 'DESCRIPTION C++'},
-  {id: 4, title: 'C', description: 'DESCRIPTION C'},
-  {id: 5, title: 'Python', description: 'DESCRIPTION Python'},
-  {id: 6, title: 'ASP.NET', description: 'DESCRIPTION ASP.NET'},
-  {id: 7, title: 'Angular', description: 'DESCRIPTION Angular'},
-  {id: 8, title: 'Go', description: 'DESCRIPTION Go'},
-  {id: 9, title: 'Retele', description: 'DESCRIPTION Retele'}
-];
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home , courses',
@@ -19,10 +11,19 @@ const COURSES = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  courses = COURSES;
-  constructor(private secretService: SecretService) {}
+  appUrl: string = environment.appUrl;
+  courses: string;
+  constructor(private secretService: SecretService, private http: HttpClient) {  }
+
+
   ngOnInit(): void {
-    this.secretService.getValues().subscribe((secrets) => console.log(secrets));
+    this.http.get<string>(this.appUrl + 'api/courses').subscribe((data) => {
+      this.courses = data;
+    });
   }
 
+  // tslint:disable-next-line: typedef
+  onclick(clickedid){
+    localStorage.setItem('CourseId', clickedid);
+  }
 }

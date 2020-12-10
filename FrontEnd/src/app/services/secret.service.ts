@@ -1,3 +1,4 @@
+import { ICourses } from './ICourses';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,11 +8,20 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SecretService {
+  currentUser: ICourses = {
+    title: null,
+    description: null,
+    imageURL: null
+  };
   appUrl: string = environment.appUrl;
   constructor(private http: HttpClient) { }
 
   getValues(): Observable<string[]> {
     return this.http.get<string[]>(this.appUrl + 'weatherforecast', this.getHttpOptions());
+  }
+
+  getCourses(): Observable<string[]> {
+    return this.http.get<string[]>(this.appUrl + 'api/courses', this.getHttpOptions());
   }
 
   // tslint:disable-next-line: typedef
