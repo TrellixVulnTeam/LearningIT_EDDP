@@ -61,9 +61,9 @@ namespace Learning_IT.Models
             //Constraint pentru tabela Chapter - un curs poate sa aiba mai multe capitole
             //One-To-Many
                 modelBuilder.Entity<Chapter>()
-                        .HasOne<Course>(ch => ch.Course)
+                        .HasOne(ch => ch.Course)
                         .WithMany(c => c.Chapters)
-                        .HasForeignKey(ch => ch.Id);
+                        .HasForeignKey(ch => ch.CourseId);
             #endregion
 
             #region

@@ -1,5 +1,3 @@
-import { ICourses } from './../../services/ICourses';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { SecretService } from './../../services/secret.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,11 +17,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<string>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
+      // console.log(this.courses);
     });
   }
 
   // tslint:disable-next-line: typedef
   onclick(clickedid){
-    localStorage.setItem('CourseId', clickedid);
+    localStorage.setItem('courseId', clickedid);
   }
 }
