@@ -1,8 +1,12 @@
-<div class="big">
-  <div class="test" *ngFor="let course of courses" routerLink="/course">
-    <h2>{{course.title}}</h2>  <br>
+<div class="right">
+  Filtre
+</div>
+<div class="left">
+  <div class="list-courses" *ngFor="let course of courses" routerLink="/course" (click)="onclick(this.course.id)">
+    <img class="center" src={{course.imageURL}} alt="poza">
+    <h2>{{course.title}}</h2>
+    <div class="divider dropdown-divider"></div>
     <p>{{course.description}}</p>
-    <img src="" alt="poza">
   </div>
 </div>
 

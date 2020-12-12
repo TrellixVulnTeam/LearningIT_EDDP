@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  Email = this.authService.currentUser.Email;
+  FirstName = localStorage.getItem('FirstName');
+  LastName = localStorage.getItem('LastName');
+  Email = localStorage.getItem('Email');
   constructor(public authService: AuthService) { }
 
   // tslint:disable-next-line: typedef
