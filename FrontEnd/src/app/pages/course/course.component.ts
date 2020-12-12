@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { IChapter } from './../../services/IChapter';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { SecretService } from 'src/app/services/secret.service';
 
 const CHAPTERS = [
-  {id: 1, title: 'Chapter 1', content: 'Content chapter 1'},
-  {id: 2, title: 'Chapter 2', content: 'Content chapter 2'},
-  {id: 3, title: 'Chapter 3', content: 'Content chapter 3'},
-  {id: 4, title: 'Chapter 4', content: 'Content chapter 4'},
-  {id: 5, title: 'Chapter 5', content: 'Content chapter 5'},
-  {id: 6, title: 'Chapter 6', content: 'Content chapter 6'},
-  {id: 7, title: 'Chapter 7', content: 'Content chapter 7'},
-  {id: 8, title: 'Chapter 8', content: 'Content chapter 8'}
+  {id: 1, title: 'Angular 1', content: 'Content Angular 1', courseId: 8},
+  {id: 2, title: 'C# 1', content: 'Content C# 1', courseId: 9},
+  {id: 3, title: 'Angular 2', content: 'Content Angular 2', courseId: 8},
+  {id: 4, title: 'Angular 3', content: 'Content Angular 3', courseId: 8},
+  {id: 5, title: 'Angular 4', content: 'Content Angular 4', courseId: 8},
+  {id: 6, title: 'C# 2', content: 'Content C# 2', courseId: 9},
 ];
 
 
@@ -17,21 +18,40 @@ const CHAPTERS = [
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.scss']
 })
-export class CourseComponent {
+export class CourseComponent implements OnInit{
   chapters = CHAPTERS;
   selectedChapter = '';
+  clickedCourse = localStorage.getItem('courseId');
+  currentChapterList: IChapter = {
+    id: null,
+    title: null,
+    content: null,
+    courseId: null
+  };
+
+  constructor(private secretService: SecretService, private http: HttpClient) {
+    for (const chapter of this.chapters){
+      if (Number(this.clickedCourse) === chapter.courseId){
+        this.currentChapterList = chapter;
+        console.log(this.currentChapterList);
+      }
+    }
+  }
+
+  ngOnInit(): void {  }
+
+  // tslint:disable-next-line: typedef
 
   // tslint:disable-next-line: typedef
   onclick(clickedid) {
-    for (const item of this.chapters)
+    for (const chapter of this.chapters)
     {
-      // tslint:disable-next-line: triple-equals
-      if (item.id == clickedid) {
-        this.selectedChapter = item.content;
+      if (this.currentChapterList.id === clickedid && this.currentChapterList.courseId === Number(this.clickedCourse)) {
+        this.selectedChapter = this.currentChapterList.content;
       }
     }
-
   }
 }
+
 
 

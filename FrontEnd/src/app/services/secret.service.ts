@@ -7,11 +7,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SecretService {
+
   appUrl: string = environment.appUrl;
   constructor(private http: HttpClient) { }
 
   getValues(): Observable<string[]> {
     return this.http.get<string[]>(this.appUrl + 'weatherforecast', this.getHttpOptions());
+  }
+
+  getCourses(): Observable<string[]> {
+    return this.http.get<string[]>(this.appUrl + 'api/courses', this.getHttpOptions());
   }
 
   // tslint:disable-next-line: typedef

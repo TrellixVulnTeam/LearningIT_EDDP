@@ -81,7 +81,6 @@ namespace Learning_IT.Controllers
             
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetCourse", new { id = course.Id }, course);
         }
 
