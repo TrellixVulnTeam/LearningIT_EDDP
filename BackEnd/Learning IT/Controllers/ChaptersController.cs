@@ -27,6 +27,23 @@ namespace Learning_IT.Controllers
             return await _context.Chapters.ToListAsync();
         }
 
+        // GET: api/Chapters/Title
+        [HttpGet("Title/{Title}")]
+        public ActionResult<Chapter> GetChapterByName(string Title)
+        {
+            Chapter chapter = new Chapter();
+
+            foreach (var item in _context.Chapters)
+            {
+                if (item.Title == Title)
+                {
+                    chapter = item;
+                }
+            }
+
+            return chapter;
+        }
+
         // GET: api/Chapters/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Chapter>> GetChapter(int id)

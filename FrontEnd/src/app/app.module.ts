@@ -14,6 +14,7 @@ import { LeaderboardComponent } from './pages/leaderboard/leaderboard.component'
 import { ArticleComponent } from './pages/article/article.component';
 import { CourseComponent } from './pages/course/course.component';
 import { FormsModule } from '@angular/forms';
+import { TeamComponent } from './pages/team/team.component';
 
 
 
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     LeaderboardComponent,
     CourseComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TeamComponent
    ],
   imports: [
     BrowserModule,

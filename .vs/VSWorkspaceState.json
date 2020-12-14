@@ -3,8 +3,12 @@
     "",
     "\\BackEnd",
     "\\BackEnd\\Learning IT",
+<<<<<<< HEAD
     "\\BackEnd\\Learning IT\\Controllers",
     "\\BackEnd\\Learning IT\\Data"
+=======
+    "\\BackEnd\\Learning IT\\Controllers"
+>>>>>>> 2af4da26907dfbd871148c14555e4f07c21ca7a3
   ],
   "SelectedNode": "\\BackEnd\\Learning IT\\Controllers\\ExamsController.cs",
   "PreviewInSolutionExplorer": false
