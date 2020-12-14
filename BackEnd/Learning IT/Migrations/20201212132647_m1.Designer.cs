@@ -10,13 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Learning_IT.Migrations
 {
     [DbContext(typeof(MyContext))]
-<<<<<<< HEAD:BackEnd/Learning IT/Migrations/20201214213936_First.Designer.cs
-    [Migration("20201214213936_First")]
-    partial class First
-=======
     [Migration("20201212132647_m1")]
     partial class m1
->>>>>>> 1f9f6e8e6c11dfcdb19f7d7450e7d7b7562e75a6:BackEnd/Learning IT/Migrations/20201212132647_m1.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
