@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BackEnd"
+    "\\BackEnd",
+    "\\BackEnd\\Learning IT",
+    "\\BackEnd\\Learning IT\\Controllers",
+    "\\BackEnd\\Learning IT\\Data"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT.sln",
+  "SelectedNode": "\\BackEnd\\Learning IT\\Controllers\\ExamsController.cs",
   "PreviewInSolutionExplorer": false
 }
