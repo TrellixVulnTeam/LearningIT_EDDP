@@ -11,48 +11,47 @@ namespace Learning_IT.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExamsController : ControllerBase
+    public class AnswersController : ControllerBase
     {
         private readonly MyContext _context;
 
-        public ExamsController(MyContext context)
+        public AnswersController(MyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Exams
+        // GET: api/Answers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Exam>>> GetExams()
+        public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()
         {
-            return await _context.Exams.ToListAsync();
+            return await _context.Answers.ToListAsync();
         }
 
-        // GET: api/Exams/5
+        // GET: api/Answers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Exam>> GetExam(int id)
+        public async Task<ActionResult<Answer>> GetAnswer(int id)
         {
-            var exam = await _context.Exams.FindAsync(id);
-        
-            if (exam == null)
+            var answer = await _context.Answers.FindAsync(id);
+
+            if (answer == null)
             {
                 return NotFound();
             }
 
-            return exam;
+            return answer;
         }
 
-
-        // PUT: api/Exams/5
+        // PUT: api/Answers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutExam(int id, Exam exam)
+        public async Task<IActionResult> PutAnswer(int id, Answer answer)
         {
-            if (id != exam.Id)
+            if (id != answer.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(exam).State = EntityState.Modified;
+            _context.Entry(answer).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +59,7 @@ namespace Learning_IT.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ExamExists(id))
+                if (!AnswerExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +72,36 @@ namespace Learning_IT.Controllers
             return NoContent();
         }
 
-        // POST: api/Exams
+        // POST: api/Answers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Exam>> PostExam(Exam exam)
+        public async Task<ActionResult<Answer>> PostAnswer(Answer answer)
         {
-            _context.Exams.Add(exam);
+            _context.Answers.Add(answer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetExam", new { id = exam.Id }, exam);
+            return CreatedAtAction("GetAnswer", new { id = answer.Id }, answer);
         }
 
-        // DELETE: api/Exams/5
+        // DELETE: api/Answers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteExam(int id)
+        public async Task<IActionResult> DeleteAnswer(int id)
         {
-            var exam = await _context.Exams.FindAsync(id);
-            if (exam == null)
+            var answer = await _context.Answers.FindAsync(id);
+            if (answer == null)
             {
                 return NotFound();
             }
 
-            _context.Exams.Remove(exam);
+            _context.Answers.Remove(answer);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ExamExists(int id)
+        private bool AnswerExists(int id)
         {
-            return _context.Exams.Any(e => e.Id == id);
+            return _context.Answers.Any(e => e.Id == id);
         }
     }
 }
