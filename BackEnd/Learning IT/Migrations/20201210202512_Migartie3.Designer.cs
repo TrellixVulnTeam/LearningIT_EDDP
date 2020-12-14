@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Learning_IT.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20201208211854_migr2")]
-    partial class migr2
+    [Migration("20201210202512_Migartie3")]
+    partial class Migartie3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,6 +88,8 @@ namespace Learning_IT.Migrations
                         .HasColumnType("nvarchar(64)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Chapters");
                 });
@@ -472,7 +474,7 @@ namespace Learning_IT.Migrations
                 {
                     b.HasOne("Learning_IT.Models.Course", "Course")
                         .WithMany("Chapters")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

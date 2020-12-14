@@ -1,4 +1,3 @@
-import { ICourses } from './ICourses';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,11 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SecretService {
-  currentUser: ICourses = {
-    title: null,
-    description: null,
-    imageURL: null
-  };
+
   appUrl: string = environment.appUrl;
   constructor(private http: HttpClient) { }
 

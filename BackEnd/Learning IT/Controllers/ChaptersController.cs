@@ -78,22 +78,8 @@ namespace Learning_IT.Controllers
         public async Task<ActionResult<Chapter>> PostChapter(Chapter chapter)
         {
             _context.Chapters.Add(chapter);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ChapterExists(chapter.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _context.SaveChangesAsync();
+            var x = chapter.Title;
             return CreatedAtAction("GetChapter", new { id = chapter.Id }, chapter);
         }
 

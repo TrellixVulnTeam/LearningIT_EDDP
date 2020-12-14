@@ -53,7 +53,9 @@ namespace Learning_IT.Migrations
             modelBuilder.Entity("Learning_IT.Models.Article", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(256)");
@@ -67,13 +69,17 @@ namespace Learning_IT.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Articles");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(256)");
@@ -86,6 +92,8 @@ namespace Learning_IT.Migrations
                         .HasColumnType("nvarchar(64)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Chapters");
                 });
@@ -119,6 +127,9 @@ namespace Learning_IT.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("varchar(256)");
@@ -131,6 +142,9 @@ namespace Learning_IT.Migrations
                         .HasColumnType("varchar(64)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ChapterId")
+                        .IsUnique();
 
                     b.ToTable("Exams");
                 });
@@ -459,7 +473,7 @@ namespace Learning_IT.Migrations
                 {
                     b.HasOne("Learning_IT.Models.User", "User")
                         .WithMany("Articles")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -470,19 +484,22 @@ namespace Learning_IT.Migrations
                 {
                     b.HasOne("Learning_IT.Models.Course", "Course")
                         .WithMany("Chapters")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Learning_IT.Models.Exam", "Exam")
-                        .WithOne("Chapter")
-                        .HasForeignKey("Learning_IT.Models.Chapter", "Id")
+                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Course");
+                });
 
-                    b.Navigation("Exam");
+            modelBuilder.Entity("Learning_IT.Models.Exam", b =>
+                {
+                    b.HasOne("Learning_IT.Models.Chapter", "Chapter")
+                        .WithOne("Exam")
+                        .HasForeignKey("Learning_IT.Models.Exam", "ChapterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.QuestionExam", b =>
@@ -598,6 +615,11 @@ namespace Learning_IT.Migrations
                     b.Navigation("AnswerQuestions");
                 });
 
+            modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
+                {
+                    b.Navigation("Exam");
+                });
+
             modelBuilder.Entity("Learning_IT.Models.Course", b =>
                 {
                     b.Navigation("Chapters");
@@ -607,8 +629,6 @@ namespace Learning_IT.Migrations
 
             modelBuilder.Entity("Learning_IT.Models.Exam", b =>
                 {
-                    b.Navigation("Chapter");
-
                     b.Navigation("QuestionExams");
                 });
 
