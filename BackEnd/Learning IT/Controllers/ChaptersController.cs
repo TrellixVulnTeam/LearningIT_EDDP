@@ -29,19 +29,19 @@ namespace Learning_IT.Controllers
 
         // GET: api/Chapters/Title
         [HttpGet("Title/{Title}")]
-        public ActionResult<IEnumerable<Chapter>> GetChaptersByName(string Title)
+        public ActionResult<Chapter> GetChapterByName(string Title)
         {
-            List<Chapter> chapters = new List<Chapter>();
+            Chapter chapter = new Chapter();
 
             foreach (var item in _context.Chapters)
             {
-                if (item.Title.Contains(Title))
+                if (item.Title == Title)
                 {
-                    chapters.Add(item);
+                    chapter = item;
                 }
             }
 
-            return chapters;
+            return chapter;
         }
 
         // GET: api/Chapters/5
