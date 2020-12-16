@@ -10,19 +10,18 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
   appUrl: string = environment.appUrl;
-  courses: string;
+  courses: any;
   constructor(private secretService: SecretService, private http: HttpClient) {  }
 
 
   ngOnInit(): void {
     this.http.get<string>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
-      // console.log(this.courses);
     });
   }
 
   // tslint:disable-next-line: typedef
-  onclick(clickedid){
-    localStorage.setItem('courseId', clickedid);
+  onclick(clickedtitle){
+    localStorage.setItem('coursetitle', clickedtitle);
   }
 }

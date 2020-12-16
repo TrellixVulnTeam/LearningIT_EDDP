@@ -36,6 +36,8 @@ namespace Learning_IT
 
             services.AddDbContext<MyContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {

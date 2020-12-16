@@ -32,10 +32,19 @@ namespace Learning_IT.Controllers
         public ActionResult<IEnumerable<Chapter>> GetChaptersByName(string Title)
         {
             List<Chapter> chapters = new List<Chapter>();
+            int idCourse = 0;
+            foreach (var item in _context.Courses)
+            {
+                if(item.Title==Title)
+                {
+                    idCourse=item.Id;
+                }
+            }
+
 
             foreach (var item in _context.Chapters) 
             {
-                if (item.Title.Contains(Title))
+                if (item.CourseId == idCourse)
                 {
                     chapters.Add(item);
                 }

@@ -1,11 +1,26 @@
-<div class="right">
-  Filtre
-</div>
 <div class="left">
-  <div class="list-courses" *ngFor="let course of courses" routerLink="/course" (click)="onclick(this.course.id)">
+  <div class="filtre">
+    <input type="checkbox" id="" name="" value="">
+    <label for=""> Filtrul 1 </label>
+  </div>
+  <div class="filtre">
+    <input type="checkbox" id="" name="" value="">
+    <label for=""> Filtrul 2 </label>
+  </div>
+  <div class="filtre">
+    <input type="checkbox" id="" name="" value="">
+    <label for=""> Filtrul 3 </label>
+  </div>
+  <div class="filtre">
+    <input type="checkbox" id="" name="" value="">
+    <label for=""> Filtrul 4 </label>
+  </div>
+</div>
+<div class="right">
+  <div class="list-courses" *ngFor="let course of courses" routerLink="/course" (click)="onclick(this.course.title)">
     <img class="center" src={{course.imageURL}} alt="poza">
     <h2>{{course.title}}</h2>
-    <div class="divider dropdown-divider"></div>
+    <hr class="solid">
     <p>{{course.description}}</p>
   </div>
 </div>

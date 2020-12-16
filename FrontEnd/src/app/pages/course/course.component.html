@@ -1,14 +1,13 @@
 <div class="big">
   <div class="listchapter">
-    <button id={{correctchapter.id}} (click)="onclick(this.correctchapter.id)" class="btn btn-light"
-      *ngFor="let correctchapter of currentChapterList.courseId">{{correctchapter.title}}</button>
+    <button id={{chapter.id}} (click)="onclick(this.chapter.id)" class="btn btn-light"
+      *ngFor="let chapter of capitole">{{chapter.title}}
+    </button>
   </div>
   <div class="chapter">
-    {{selectedChapter}}
-
+    <p>{{selectedChapter}}</p>
     <br>
-    <br>
-    <br>
+    <button class="btn btn-light" routerLink="/exams">Examen</button>
   </div>
 
 </div>
