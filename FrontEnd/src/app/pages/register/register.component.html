@@ -22,7 +22,7 @@
 				<label for="ConfirmPassword">Confirm Password</label>
 				<input type="password" name="ConfirmPassword" [(ngModel)]="model.ConfirmPassword" required #ConfirmPassword="ngModel" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
 			</div>
-      <button type="submit" routerLink="/login" [disabled]="f.invalid" class="btn btn-primary" (click)="onSubmit()">Sign up<i class="fas fa-sign-in-alt"></i></button>
+      <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="onSubmit()">Sign up<i class="fas fa-sign-in-alt"></i></button>
       <button class="btn btn-outline-success" routerLink="/login">Login</button>
 		</form>
 	</div>

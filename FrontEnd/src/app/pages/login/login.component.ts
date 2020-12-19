@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -12,10 +14,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    // private alertService: AlertService,
     private authService: AuthService,
+    private toastr: ToastrService,
     private router: Router
-    // private progressService: ProgressbarService
   ) { }
 
 
@@ -24,23 +25,16 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   Login(f: NgForm) {
-    // this.alertService.info('Check login information');
-    // this.progressService.startLoading();
-
     const loginObserver = {
       next: (x) => {
-        alert('Welcome back ' + localStorage.getItem('FirstName') + ' ' + localStorage.getItem('LastName'));
-        this.router.navigate(['home']);
-        // this.progressService.setSuccess();
-        // this.alertService.success('Welcome back' + x.username);
-        // this.progressService.completeLoading();
+        // this.toastr.success('Welcome back ' + localStorage.getItem('FirstName') + ' ' + localStorage.getItem('LastName'));
+        this.toastr.success('Welcome back ' + this.authService.FirstName + ' ' + this.authService.LastName);
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+      });
       },
       error: (err) => {
-        alert('Fail');
-        console.log(err);
-        // this.progressService.setFailure();
-        // this.alertService.danger('Unable to Login');
-        // this.progressService.completeLoading();
+        this.toastr.error('Fail');
       },
     };
 

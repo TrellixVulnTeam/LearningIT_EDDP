@@ -15,8 +15,8 @@ import { ArticleComponent } from './pages/article/article.component';
 import { CourseComponent } from './pages/course/course.component';
 import { FormsModule } from '@angular/forms';
 import { TeamComponent } from './pages/team/team.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,12 @@ import { TeamComponent } from './pages/team/team.component';
     TeamComponent
    ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     UserService
