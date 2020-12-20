@@ -15,6 +15,9 @@ import { ArticleComponent } from './pages/article/article.component';
 import { CourseComponent } from './pages/course/course.component';
 import { FormsModule } from '@angular/forms';
 import { TeamComponent } from './pages/team/team.component';
+import { UserRankComponent } from './pages/leaderboard/user-rank/user-rank.component';
+import { HeaderRankComponent } from './pages/leaderboard/header-rank/header-rank.component';
+import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/users-rank-list.component';
 
 
 
@@ -29,7 +32,10 @@ import { TeamComponent } from './pages/team/team.component';
     CourseComponent,
     LoginComponent,
     RegisterComponent,
-    TeamComponent
+    TeamComponent,
+    UserRankComponent,
+    HeaderRankComponent,
+    UsersRankListComponent
    ],
   imports: [
     BrowserModule,

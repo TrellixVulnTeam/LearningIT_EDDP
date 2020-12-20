@@ -9,6 +9,7 @@ export class LeaderboardComponent implements OnInit {
 
   constructor() { }
 
+  // tslint:disable-next-line:typedef
   ngOnInit() {
   }
 

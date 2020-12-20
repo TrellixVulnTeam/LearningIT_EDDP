@@ -33,6 +33,10 @@ namespace Learning_IT.Services
         }
         public async Task<UserManagerResponse> RegisterUserAsync(RegisterViewModel model)
         {
+
+            Random random = new Random();
+            decimal randomScore = random.Next(0, 100);
+
             if (model == null)
                 throw new NullReferenceException("Register Model is null");
 
@@ -54,7 +58,7 @@ namespace Learning_IT.Services
                 IdentityId = identityUser.Id,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                Score = 0
+                Score = randomScore
             };
 
             var result = await _userManager.CreateAsync(identityUser, model.Password);

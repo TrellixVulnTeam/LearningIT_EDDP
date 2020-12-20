@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "LearningIT"
+  "defaultProject": "LearningIT",
+  "cli": {
+    "analytics": false
+  }
 }
