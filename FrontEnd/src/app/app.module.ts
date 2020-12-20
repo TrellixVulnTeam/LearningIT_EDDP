@@ -18,6 +18,9 @@ import { TeamComponent } from './pages/team/team.component';
 import { UserRankComponent } from './pages/leaderboard/user-rank/user-rank.component';
 import { HeaderRankComponent } from './pages/leaderboard/header-rank/header-rank.component';
 import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/users-rank-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
