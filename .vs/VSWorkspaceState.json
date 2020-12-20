@@ -2,12 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\BackEnd",
-    "\\FrontEnd\\src",
-    "\\FrontEnd\\src\\app",
-    "\\FrontEnd\\src\\app\\pages",
-    "\\FrontEnd\\src\\app\\pages\\register",
-    "\\FrontEnd\\src\\app\\services"
+    "\\BackEnd\\Learning IT"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT.sln",
+  "SelectedNode": "\\BackEnd\\Learning IT\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
