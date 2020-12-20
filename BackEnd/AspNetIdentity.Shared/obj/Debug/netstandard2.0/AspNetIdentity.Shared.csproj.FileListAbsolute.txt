@@ -1,0 +1,9 @@
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\bin\Debug\netstandard2.0\AspNetIdentity.Shared.deps.json
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\bin\Debug\netstandard2.0\AspNetIdentity.Shared.dll
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\bin\Debug\netstandard2.0\AspNetIdentity.Shared.pdb
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.AssemblyInfoInputs.cache
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.AssemblyInfo.cs
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.dll
+C:\Users\Gabriel\Source\Repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.pdb
+C:\Users\Gabriel\source\repos\unibuc-cs\LearningIT\BackEnd\AspNetIdentity.Shared\obj\Debug\netstandard2.0\AspNetIdentity.Shared.csprojAssemblyReference.cache

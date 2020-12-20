@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "JwljKaChAF0GzJelQUjwxGrWL9LD35RPrDMEDXvUlAoYVE+H23Y1Me6GHRCohQ+2KUE/ckcRF0+AbxmM6sXZ8A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gabriel\\source\\repos\\unibuc-cs\\LearningIT\\BackEnd\\AspNetIdentity.Shared\\AspNetIdentity.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Gabriel\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Gabriel\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
