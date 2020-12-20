@@ -6,13 +6,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Learning_IT.Models;
+using Learning_IT.DTOs;
+using Learning_IT.Utils;
 
 namespace Learning_IT.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
-    {
+    {   
+
         private readonly MyContext _context;
 
         public UserController(MyContext context)
@@ -25,6 +28,26 @@ namespace Learning_IT.Controllers
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
+        }
+        // GET: api/User/LeaderboardTop
+        [HttpGet("LeaderboardTop")]
+        public async Task<ActionResult<IEnumerable<UserRankDetail>>> GetLeaderboardTop()
+        {
+
+            List<UserRankDetail> userRankDetailList = new List<UserRankDetail>();
+
+            var usersList = await _context.Users.ToListAsync();
+
+            foreach (var user in usersList)
+            {
+                UserRankDetail userRankDetail = new UserRankDetail(
+                    user.Id,
+                    user.FirstName.ToString() + " " + user.LastName.ToString(),
+                    user.Score);
+                userRankDetailList.Add(userRankDetail);
+            }
+
+            return userRankDetailList.OrderByDescending(u => u.Score).Take((int)BrUtilis.Constante.TOP5).ToList() ;
         }
 
         // GET: api/User/5
@@ -79,6 +102,7 @@ namespace Learning_IT.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+           
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 

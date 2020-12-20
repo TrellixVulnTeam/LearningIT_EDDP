@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\BackEnd",
-    "\\BackEnd\\Learning IT",
-    "\\BackEnd\\Learning IT\\Controllers",
-    "\\BackEnd\\Learning IT\\Data"
+    "\\FrontEnd\\src",
+    "\\FrontEnd\\src\\app",
+    "\\FrontEnd\\src\\app\\pages",
+    "\\FrontEnd\\src\\app\\pages\\register",
+    "\\FrontEnd\\src\\app\\services"
   ],
   "SelectedNode": "\\BackEnd\\Learning IT.sln",
   "PreviewInSolutionExplorer": false
