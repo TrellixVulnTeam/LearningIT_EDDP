@@ -11,14 +11,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
   appUrl: string = environment.appUrl;
   helper = new JwtHelperService();
-  /*
-  currentUser: IUser = {
-    FirstName: null,
-    LastName: null,
-    Email: null,
-    isSuccess: null
-  };
-  */
+  FirstName: string;
+  LastName: string;
+  Email: string;
   constructor( private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
@@ -26,16 +21,13 @@ export class AuthService {
     return this.http.post(this.appUrl + 'api/auth/login', model).pipe(
       map((response: any) => {
         const decodedToken = this.helper.decodeToken(response.message);
-        // this.currentUser.Email = decodedToken.Email;
-        // this.currentUser.FirstName = decodedToken.FirstName;
-        // this.currentUser.LastName = decodedToken.LastName;
-        // this.currentUser.isSuccess = response.isSuccess;
+        this.Email = decodedToken.Email;
+        this.FirstName = decodedToken.FirstName;
+        this.LastName = decodedToken.LastName;
         localStorage.setItem('Email', decodedToken.Email);
         localStorage.setItem('FirstName', decodedToken.FirstName);
         localStorage.setItem('LastName', decodedToken.LastName);
         localStorage.setItem('message', response.message);
-
-        // return this.currentUser;
       })
     );
   }

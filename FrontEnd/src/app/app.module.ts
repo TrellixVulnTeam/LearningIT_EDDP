@@ -19,8 +19,6 @@ import { UserRankComponent } from './pages/leaderboard/user-rank/user-rank.compo
 import { HeaderRankComponent } from './pages/leaderboard/header-rank/header-rank.component';
 import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/users-rank-list.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,10 +36,12 @@ import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/user
     UsersRankListComponent
    ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     UserService

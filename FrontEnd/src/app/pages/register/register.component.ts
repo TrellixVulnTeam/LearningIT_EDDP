@@ -2,8 +2,9 @@ import { AlertService } from 'ngx-alerts';
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
-import { ProgressbarService } from 'src/app/services/progressbar.service';
 import { inject } from '@angular/core/testing';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +21,9 @@ export class RegisterComponent implements OnInit {
   };
 
   constructor(
-    // public alertService: AlertService,
     private authService: AuthService,
-    private progressService: ProgressbarService
+    private toastr: ToastrService,
+    private router: Router
 
   ) {}
 
@@ -31,19 +32,15 @@ export class RegisterComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   onSubmit() {
-    // this.progressService.startLoading();
     const registerObserver = {
       next: (x) => {
-        alert('Account Created');
-        // this.progressService.setSuccess();
-        // this.alertService.success('Account Created');
-        // this.progressService.completeLoading();
+        this.toastr.success('Account Created');
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
       },
       error: (err) => {
-        alert('Fail');
-        // this.progressService.setFailure();
-        // this.alertService.danger(err.error.errors[0].description);
-        // this.progressService.completeLoading();
+        this.toastr.error('Fail');
       },
     };
 

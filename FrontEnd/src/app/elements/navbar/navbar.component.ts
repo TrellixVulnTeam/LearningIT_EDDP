@@ -7,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  FirstName = localStorage.getItem('FirstName');
-  LastName = localStorage.getItem('LastName');
-  Email = localStorage.getItem('Email');
-  constructor(public authService: AuthService) { }
+  FirstName: string;
+  LastName: string;
+  Email: string;
+  constructor(public authService: AuthService) {
+    this.FirstName = localStorage.getItem('FirstName');
+    this.LastName = localStorage.getItem('LastName');
+    this.Email = localStorage.getItem('Email');
+   }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+    // this.FirstName = localStorage.getItem('FirstName');
+    // this.LastName = localStorage.getItem('LastName');
+    // this.Email = localStorage.getItem('Email');
   }
 
   isloggedIn(): boolean{
