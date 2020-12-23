@@ -1,3 +1,4 @@
+import { ExamsComponent } from './pages/exams/exams.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleComponent } from './pages/article/article.component';
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'course', component: CourseComponent },
   { path: 'team', component: TeamComponent},
+  { path: 'exam', component: ExamsComponent},
   { path: '**', redirectTo: '/' }
 
 ];
