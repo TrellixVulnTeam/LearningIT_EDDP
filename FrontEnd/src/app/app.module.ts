@@ -1,3 +1,5 @@
+import { FooterComponent } from './elements/footer/footer.component';
+import { ExamsComponent } from './pages/exams/exams.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserService } from './services/user.service';
@@ -5,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -20,7 +21,8 @@ import { HeaderRankComponent } from './pages/leaderboard/header-rank/header-rank
 import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/users-rank-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     NavbarComponent,
     HomeComponent,
+    FooterComponent,
     ArticleComponent,
     LeaderboardComponent,
     CourseComponent,
@@ -36,7 +39,9 @@ import { ToastrModule } from 'ngx-toastr';
     TeamComponent,
     UserRankComponent,
     HeaderRankComponent,
-    UsersRankListComponent
+    UsersRankListComponent,
+    ExamsComponent,
+
    ],
   imports: [
     BrowserAnimationsModule,
@@ -44,6 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    Ng2SearchPipeModule,
     ToastrModule.forRoot()
   ],
   providers: [
