@@ -1,5 +1,4 @@
 import { HomeComponent } from './../home/home.component';
-import { IChapter } from './../../services/IChapter';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SecretService } from 'src/app/services/secret.service';
@@ -14,7 +13,7 @@ export class CourseComponent implements OnInit{
   capitole: any;
   appUrl: string = environment.appUrl;
   selectedChapter = '';
-  currenttitle = localStorage.getItem('coursetitle');
+  currenttitle = localStorage.getItem('CourseTitle');
 
   constructor(private secretService: SecretService, private http: HttpClient) { }
 
@@ -30,6 +29,8 @@ export class CourseComponent implements OnInit{
     {
       if (item.id === clickedid){
         this.selectedChapter = item.content;
+        localStorage.setItem('ChapterChapter', item.title);
+        localStorage.setItem('ChapterId', clickedid);
       }
     }
   }

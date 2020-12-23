@@ -41,7 +41,29 @@ namespace Learning_IT.Controllers
             return exam;
         }
 
-
+        // GET: api/Exams/Title
+        [HttpGet("Title/{Title}")]
+        public ActionResult<Exam> GetExamByChapterName(string Title)
+        {
+            Exam exam = new Exam();
+            int idChapter = 0;
+            foreach (var item in _context.Chapters)
+            {
+                if (item.Title == Title)
+                {
+                    idChapter = item.Id;
+                }
+            }
+            foreach (var item in _context.Exams)
+            {
+                if (item.ChapterId.Equals(idChapter))
+                {
+                    exam = item;
+                }
+            }
+            return exam;
+        }
+        
         // PUT: api/Exams/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

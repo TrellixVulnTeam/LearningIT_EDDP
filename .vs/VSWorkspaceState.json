@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BackEnd",
+    "\\FrontEnd",
     "\\FrontEnd\\src",
     "\\FrontEnd\\src\\app",
-    "\\FrontEnd\\src\\app\\pages",
-    "\\FrontEnd\\src\\app\\pages\\register",
-    "\\FrontEnd\\src\\app\\services"
+    "\\FrontEnd\\src\\app\\pages"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT\\appsettings.json",
+  "SelectedNode": "\\FrontEnd\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
