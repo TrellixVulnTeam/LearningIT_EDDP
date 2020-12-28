@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\BackEnd",
-    "\\FrontEnd\\src",
-    "\\FrontEnd\\src\\app",
-    "\\FrontEnd\\src\\app\\pages",
-    "\\FrontEnd\\src\\app\\pages\\register",
-    "\\FrontEnd\\src\\app\\services"
+    "\\BackEnd\\Learning IT",
+    "\\BackEnd\\Learning IT\\Controllers",
+    "\\BackEnd\\Learning IT\\Data",
+    "\\BackEnd\\Learning IT\\DTOs",
+    "\\BackEnd\\Learning IT\\IRepositories",
+    "\\BackEnd\\Learning IT\\Models"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT\\appsettings.json",
+  "SelectedNode": "\\BackEnd\\Learning IT\\Models",
   "PreviewInSolutionExplorer": false
 }
