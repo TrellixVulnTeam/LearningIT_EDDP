@@ -1,27 +1,54 @@
-<div class="left">
-  <div class="filtre">
-    <input type="checkbox" id="" name="" value="">
-    <label for=""> Filtrul 1 </label>
-  </div>
-  <div class="filtre">
-    <input type="checkbox" id="" name="" value="">
-    <label for=""> Filtrul 2 </label>
-  </div>
-  <div class="filtre">
-    <input type="checkbox" id="" name="" value="">
-    <label for=""> Filtrul 3 </label>
-  </div>
-  <div class="filtre">
-    <input type="checkbox" id="" name="" value="">
-    <label for=""> Filtrul 4 </label>
-  </div>
-</div>
-<div class="right">
-  <div class="list-courses" *ngFor="let course of courses" routerLink="/course" (click)="onclick(this.course.title)">
-    <img class="center" src={{course.imageURL}} alt="poza">
-    <h2>{{course.title}}</h2>
-    <hr class="solid">
-    <p>{{course.description}}</p>
-  </div>
+<div class="top">
+  <br>
+  <h1 class="h1-top">Browse all</h1>
+  <p class="p-top">Learn new skills and discover the power of LearningIT with step-by-step guidance. Start your journey today by exploring our modules.</p>
 </div>
 
+<div>
+  <div class="left">
+    <div class="linie">
+      <h5>Category</h5>
+      <ul class="filtre-category">
+        <li *ngFor="let item of category">
+          <input type="checkbox">
+          <label class="label-text-size">{{item.t}}</label>
+        </li>
+      </ul>
+    </div>
+    <br>
+    <div class="linie">
+      <h5>Levels</h5>
+      <ul class="filtre-level">
+        <li *ngFor="let item of levels">
+          <input type="checkbox">
+          <label class="label-text-size">{{item.t}}</label>
+        </li>
+      </ul>
+    </div>
+    <br>
+  </div>
+  <div class="right">
+    <div class="container mt-5">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
+    </div>
+    <div class="list-courses" *ngFor="let item of courses | filter:filterTerm">
+      <div class="icon">
+        <img class="center" width="50" height="50" src={{item.imageURL}} alt="poza">
+      </div>
+      <div class="partea-albastra">
+        <br>
+        <br>
+        <br>
+      </div>
+      <div class="partea-alba">
+        <p class="MODULE">MODULE</p>
+        <p class="p-partea-alba"><a routerLink="/course" (click)="onclick(this.item.title)">{{item.title}}</a></p>
+        <p class="minute">38 min</p>
+        <div>
+          <p class="tag"><mark>Microsoft Endpoint Manager</mark> &nbsp; <mark>Intermediate</mark></p>
+        </div>
+        <div class="linie-parte-alba"></div>
+      </div>
+    </div>
+  </div>

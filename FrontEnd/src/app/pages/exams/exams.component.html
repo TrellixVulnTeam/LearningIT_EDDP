@@ -1,3 +1,29 @@
-<p>
-  exams works!
-</p>
+<div class="test">
+  <div class="scp-quizzes-main">
+    <div class="scp-quizzes-data">
+      <ul *ngFor="let item of aux">
+        <h3 > {{item.title}}</h3><br/>
+        <input type="radio" name="question1">
+        <label (click)="raspuns(this.item.r1)" >a. {{item.r1}}</label><br/>
+        <input type="radio" name="question1">
+        <label (click)="raspuns(this.item.r2)">b. {{item.r2}}</label><br/>
+        <input type="radio" name="question1">
+        <label (click)="raspuns(this.item.r3)">c. {{item.r3}}</label> <br/>
+        <input type="radio" name="question1">
+        <label (click)="raspuns(this.item.r4)">d. {{item.r4}}</label>
+      </ul>
+    </div>
+    <!-- <div class="scp-quizzes-data">
+      <h3>2. How would you insert pre-written code into a current program ?</h3><br/>
+      <input type="radio" name="question2">
+      <label>a. #read&lt;file></label><br/>
+      <input type="radio"  name="question2">
+      <label>b. #get &lt;file></label><br/>
+      <input type="radio" name="question2" id="inculdefile">
+      <label for="inculdefile">c. #include &lt;file></label> <br/>
+      <input type="radio" name="question2">
+      <label>d. #pre &lt;file></label>
+    </div> -->
+  </div>
+  <button class="btn btn-light" (click)="getRaspunsuri()">Submit</button>
+</div>
