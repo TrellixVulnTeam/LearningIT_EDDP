@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Learning_IT.Models;
 using Learning_IT.DTOs;
 using Learning_IT.Utils;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using Microsoft.AspNetCore.Identity;
 
 namespace Learning_IT.Controllers
 {
@@ -17,10 +20,12 @@ namespace Learning_IT.Controllers
     {   
 
         private readonly MyContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserController(MyContext context)
+        public UserController(UserManager<IdentityUser> userManager, MyContext context)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/User
@@ -129,5 +134,41 @@ namespace Learning_IT.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
+
+        //UPLOAD IMAGE FOR USER
+        [HttpPost("Image/{id}")]
+        public ActionResult UploadImage(int id)
+        {
+
+            MemoryStream ms = new MemoryStream();
+            return Ok();
+        }
+
+        //GET USER ID BY EMAIL
+        [HttpGet("Email/{Email}")]
+        public ActionResult<int> GetUserId(string Email)
+        {
+            string email = Email;
+            string userIdentityId = "";
+            int userId = 0;
+            foreach(var item in _userManager.Users)
+            {
+                if(item.Email == email)
+                {
+                    userIdentityId = item.Id;
+                }
+            }
+
+            foreach(var item in _context.Users)
+            {
+                if(item.IdentityId == userIdentityId)
+                {
+                    userId = item.Id;
+                }
+            }
+
+            return userId;
+        }
+
     }
 }

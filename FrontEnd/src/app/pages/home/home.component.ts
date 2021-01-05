@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   appUrl: string = environment.appUrl;
   x: string;
   courses: any;
+  userId: any;
   filterTerm: string;
   category = [
     {t: '.NET'},
@@ -42,9 +43,10 @@ export class HomeComponent implements OnInit {
   constructor(private secretService: SecretService, private http: HttpClient) {
     this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
-      console.log(this.courses);
     });
-
+    this.http.get<any>(this.appUrl + 'api/User/Email/' + localStorage.getItem("Email")).subscribe((data) => {
+      localStorage.setItem("Id",data);
+    });
    }
 
 
