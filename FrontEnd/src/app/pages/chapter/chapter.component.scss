@@ -1,0 +1,56 @@
+
+
+.rectangle {margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 910px;
+  background: #f4f7f7;
+  border: 0.2px solid rgb(224, 224, 224);
+  border-radius: 7px;
+  margin-top:50px;
+  box-shadow: 1px 1px 1.5px 1px #e2e2e2;
+}
+
+.title {
+  margin-top: 45px;
+  margin-left: 65px;
+}
+
+#parallelogram {
+  margin-top: 55px;
+	width: 75px;
+	height: 20px;
+  background: #128a2c;
+  border: 0.3px solid rgb(16, 102, 73);
+  box-shadow: 1px 1px 1.5px 1px #072b1c;
+  text-align: center;
+}
+
+.experience{
+ color: #e2e2e2;
+ margin-top: -3px;
+}
+
+.time {
+  color: #292828;
+  margin-left: 80px;
+}
+
+.content {
+  max-width: 85%;
+  margin-top: 30px;
+  margin-left: 80px;
+}
+
+.next{
+  margin-top: 15px;
+  margin-left: 80px;
+}
+
+#nextButton {
+  margin-top: 5px;
+  margin-left: 80px;
+}
+
+

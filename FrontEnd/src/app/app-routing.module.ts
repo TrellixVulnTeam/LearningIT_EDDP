@@ -8,6 +8,7 @@ import { CourseComponent } from './pages/course/course.component';
 import { TeamComponent } from './pages/team/team.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ChapterComponent } from './pages/chapter/chapter.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +18,8 @@ const appRoutes: Routes = [
   { path: 'article', component: ArticleComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'course', component: CourseComponent },
+  { path: 'chapter', component: ChapterComponent},
+  { path: 'chapter/:id', component: ChapterComponent },
   { path: 'team', component: TeamComponent},
   { path: 'exam', component: ExamsComponent},
   { path: '**', redirectTo: '/' }
