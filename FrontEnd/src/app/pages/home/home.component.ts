@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
   appUrl: string = environment.appUrl;
   x: string;
+  p = 1;
   courses: any;
   filterTerm: string;
   category = [
@@ -39,14 +40,13 @@ export class HomeComponent implements OnInit {
     {t: 'Intermediate'},
     {t: 'Advanced'}
   ];
+
   constructor(private secretService: SecretService, private http: HttpClient) {
     this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
-      console.log(this.courses);
     });
 
    }
-
 
   ngOnInit(): void {
 

@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\BackEnd",
     "\\FrontEnd",
     "\\FrontEnd\\src",
     "\\FrontEnd\\src\\app",
-    "\\FrontEnd\\src\\app\\pages"
+    "\\FrontEnd\\src\\app\\pages",
+    "\\FrontEnd\\src\\app\\pages\\home"
   ],
   "SelectedNode": "\\FrontEnd\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false

@@ -8,6 +8,7 @@ import { CourseComponent } from './pages/course/course.component';
 import { TeamComponent } from './pages/team/team.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'article', component: ArticleComponent },
+  { path: 'articles', component: ArticlesComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'course', component: CourseComponent },
   { path: 'team', component: TeamComponent},
