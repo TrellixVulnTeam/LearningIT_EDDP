@@ -15,10 +15,17 @@ namespace Learning_IT.Models
         [Column(TypeName = "nvarchar(64)")]
         public string Title { get; set; }
         [Column(TypeName = "nvarchar(256)")]
-        public string Description { get; set; }
+        public string Description { get; set;}
         [Column(TypeName = "nvarchar(max)")]
         public string ImageURL { get; set; }
-
+        [Column(TypeName = "int")]
+        public int? Experience {get;set;}
+        [Column(TypeName = "nvarchar(max)")]
+        public string? Category { get;set;}
+        [Column(TypeName = "nvarchar(max)")] 
+        public string? Level { get; set; }
+        [Column(TypeName ="int")]
+        public int? Time { get; set; }
         public virtual IList<UserCourse> UserCourses { get; set; }
         public virtual IList<Chapter> Chapters { get; set; }
     }

@@ -87,6 +87,12 @@ namespace Learning_IT.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("FlagFinished")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Time")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(64)");
@@ -105,11 +111,23 @@ namespace Learning_IT.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int?>("Experience")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Level")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Time")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

@@ -2,7 +2,6 @@ import { FooterComponent } from './elements/footer/footer.component';
 import { ExamsComponent } from './pages/exams/exams.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-import { UserService } from './services/user.service';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,7 +21,8 @@ import { UsersRankListComponent } from './pages/leaderboard/users-rank-list/user
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +41,13 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     HeaderRankComponent,
     UsersRankListComponent,
     ExamsComponent,
+    ArticlesComponent
+
 
    ],
   imports: [
     BrowserAnimationsModule,
+    NgxPaginationModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -53,7 +56,6 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     ToastrModule.forRoot()
   ],
   providers: [
-    UserService
   ],
   bootstrap: [AppComponent]
 })
