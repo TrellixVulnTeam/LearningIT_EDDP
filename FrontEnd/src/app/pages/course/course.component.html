@@ -1,14 +1,73 @@
-<div class="big">
-  <div class="listchapter">
-    <button id={{chapter.id}} (click)="onclick(this.chapter.id)" class="btn btn-light"
-      *ngFor="let chapter of capitole">{{chapter.title}}
-    </button>
-  </div>
-  <div class="chapter">
-    <div class="classpre">
-      <div [innerHTML]="selectedChapter"></div>
+
+<div class="  d-flex justify-content-center container">
+
+  <div class="row">
+  <div class="rectangle">
+
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="icon">
+          <div class="circle-icon">
+            <img width="90%" height="90%" class="center" src={{course?.imageURL}} alt="icon">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="row">
+          <div class="title">
+            <p>{{course?.title}}</p>
+            <p class="subtitle"> {{course?.time}} min - Module - 7 Units</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="parallelogram" class="col-xs-4" >
+          <pre class="experience"> {{course?.experience}} xp</pre>
+      </div>
+
     </div>
-    <br>
-    <button class="btn btn-light" routerLink="/exam">Examen</button>
+
+    <div class="tags row">
+      <div class="tagrectangle col-xs-2">
+        <h6>{{course?.level}}</h6>
+      </div>
+
+      <div class="tagrectangle col-xs-2">
+        <h6>{{course?.category}}</h6>
+      </div>
+    </div>
+
+    <div class="textContent row">
+      <div class="col-xs-9">
+        <div class="textCourse">
+          <div innerHTML={{course?.description}}></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="start">
+        <button routerLink="/chapter" (click)="saveChaperId(firstChapter.id)" class="list-group-item list-group-item-action" type="button" class="btn btn-primary">Start ></button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="chaptersTitleParagraph">
+      <h5>This module includes the next chapters :</h5>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a routerLink="/chapter" (click)="saveChaperId(this.chapter.id)" class="list-group-item list-group-item-action"  *ngFor="let chapter of capitole">
+              <img [hidden]="chapter.flagFinished!=1" class="ok" width="30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpy6yf5KdrcU3NpXPlno0_CUnI34BpdWKEjA&usqp=CAU"/>
+              {{chapter.title}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

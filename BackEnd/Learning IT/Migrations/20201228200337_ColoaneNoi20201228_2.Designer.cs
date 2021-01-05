@@ -4,14 +4,16 @@ using Learning_IT.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Learning_IT.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20201228200337_ColoaneNoi20201228_2")]
+    partial class ColoaneNoi20201228_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,12 +87,6 @@ namespace Learning_IT.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FlagFinished")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Time")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")

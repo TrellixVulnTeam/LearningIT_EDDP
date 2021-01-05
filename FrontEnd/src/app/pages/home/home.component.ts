@@ -56,4 +56,7 @@ export class HomeComponent implements OnInit {
   onclick(clickedtitle){
     localStorage.setItem('CourseTitle', clickedtitle);
   }
+  saveId(clickedId){
+    localStorage.setItem('CourseId', clickedId);
+  }
 }
