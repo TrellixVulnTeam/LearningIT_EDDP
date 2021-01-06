@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BackEnd",
-    "\\BackEnd\\Learning IT\\Controllers",
-    "\\BackEnd\\Learning IT\\Data",
-    "\\BackEnd\\Learning IT\\DTOs",
-    "\\BackEnd\\Learning IT\\IRepositories",
-    "\\BackEnd\\Learning IT\\Models"
+    "\\BackEnd"
   ],
   "SelectedNode": "\\BackEnd\\Learning IT.sln",
   "PreviewInSolutionExplorer": false
