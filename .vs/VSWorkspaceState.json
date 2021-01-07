@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FrontEnd",
-    "\\FrontEnd\\src",
-    "\\FrontEnd\\src\\app",
-    "\\FrontEnd\\src\\app\\pages"
+    "\\BackEnd"
   ],
-  "SelectedNode": "\\FrontEnd\\src\\app\\app.module.ts",
+  "SelectedNode": "\\BackEnd\\Learning IT.sln",
   "PreviewInSolutionExplorer": false
 }

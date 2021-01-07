@@ -19,5 +19,7 @@ namespace Learning_IT.Models
 
         public int UserId { get; set; }
         public User User { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
+        public string? ImageURL { get; set; }
     }
 }

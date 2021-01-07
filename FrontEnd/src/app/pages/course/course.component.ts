@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SecretService } from 'src/app/services/secret.service';
 import { environment } from 'src/environments/environment';
+import { CourseDetails } from '../utils/CourseDetails';
+import { ChapterDetails } from '../utils/ChapterDetails';
+
 
 @Component({
   selector: 'app-course , chapters',
@@ -10,30 +13,38 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit{
-  capitole: any;
+
+  public capitole: ChapterDetails[];
+  public firstChapter: ChapterDetails;
+  public course: CourseDetails;
   appUrl: string = environment.appUrl;
   selectedChapter = '';
   currenttitle = localStorage.getItem('CourseTitle');
+  curentId = localStorage.getItem('CourseId');
 
   constructor(private secretService: SecretService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>(this.appUrl + 'api/chapters/title/' + this.currenttitle).subscribe((data) => {
-      this.capitole = data;
+
+    this.http.get<CourseDetails>(this.appUrl + 'api/courses/' + this.curentId).subscribe((data) => {
+      this.course = data;
     });
+
+    this.http.get<ChapterDetails[]>(this.appUrl + 'api/chapters/title/' + this.currenttitle).subscribe((data) => {
+      this.capitole = data;
+      this.firstChapter = data[0];
+    });
+
   }
+
+
+  saveChaperId(ChaperId): void {
+    localStorage.setItem('ChapterId', ChaperId);
+    localStorage.setItem('CurentTitleCourse', this.currenttitle);
+  }
+
   // tslint:disable-next-line: typedef
-  onclick(clickedid) {
-    // tslint:disable-next-line: prefer-const
-    for (let item of this.capitole)
-    {
-      if (item.id === clickedid){
-        this.selectedChapter = item.content;
-        localStorage.setItem('ChapterChapter', item.title);
-        localStorage.setItem('ChapterId', clickedid);
-      }
-    }
-  }
+
 }
 
 
