@@ -1,22 +1,21 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
 <div class="basic">
-	<div class="col-md-6 offset-md-3 mt-4">
-		<h3>Login</h3>
-		<form #f="ngForm">
-			<div class="form-group">
-				<label for="Email">Email</label>
-				<input type="email" name="Email" ngModel required #Email="ngModel" class="form-control" id="Email" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<label for="Password">Password</label>
-				<input type="password" name="Password" ngModel required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
-			</div>
+  <div class="col-md-6 offset-md-3 mt-4">
+    <h3>Login</h3>
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" name="Email" ngModel required #Email="ngModel" class="form-control" id="Email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" name="Password" ngModel required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
+      </div>
       <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="Login(f)">Login<i class="fas fa-sign-in-alt"></i></button>
       <a routerLink="/register"><button class="btn btn-outline-success" >Sign up</button><br></a>
       <button class="btn btn-outline-danger" routerLink="article">Forgot Password?</button>
-		</form>
-	</div>
+    </form>
+  </div>
 </div>

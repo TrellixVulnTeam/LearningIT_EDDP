@@ -11,7 +11,9 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
   appUrl: string = environment.appUrl;
   x: string;
+  p = 1;
   courses: any;
+  userId: any;
   filterTerm: string;
   category = [
     {t: '.NET'},
@@ -39,14 +41,15 @@ export class HomeComponent implements OnInit {
     {t: 'Intermediate'},
     {t: 'Advanced'}
   ];
+
   constructor(private secretService: SecretService, private http: HttpClient) {
     this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
-      console.log(this.courses);
     });
-
+    this.http.get<any>(this.appUrl + 'api/User/Email/' + localStorage.getItem("Email")).subscribe((data) => {
+      localStorage.setItem("Id",data);
+    });
    }
-
 
   ngOnInit(): void {
 
@@ -55,5 +58,8 @@ export class HomeComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onclick(clickedtitle){
     localStorage.setItem('CourseTitle', clickedtitle);
+  }
+  saveId(clickedId){
+    localStorage.setItem('CourseId', clickedId);
   }
 }
