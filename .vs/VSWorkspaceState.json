@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BackEnd",
+    "\\BackEnd\\Learning IT",
     "\\BackEnd\\Learning IT\\Controllers",
-    "\\BackEnd\\Learning IT\\Data",
-    "\\BackEnd\\Learning IT\\DTOs",
     "\\BackEnd\\Learning IT\\IRepositories",
-    "\\BackEnd\\Learning IT\\Models"
+    "\\BackEnd\\Learning IT\\Models",
+    "\\FrontEnd",
+    "\\FrontEnd\\src",
+    "\\FrontEnd\\src\\app",
+    "\\FrontEnd\\src\\app\\pages",
+    "\\FrontEnd\\src\\app\\pages\\course"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT.sln",
+  "SelectedNode": "\\FrontEnd\\src\\app\\pages\\course\\course.component.html",
   "PreviewInSolutionExplorer": false
 }
