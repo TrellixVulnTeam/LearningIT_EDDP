@@ -34,7 +34,7 @@
         </div>
         <div class="partea-alba">
           <p class="MODULE">MODULE</p>
-          <p class="p-partea-alba"><a routerLink="/course" (click)="onclick(this.item.title)">{{item.title}}</a></p>
+          <p class="p-partea-alba"><a routerLink="/course" (click)="onclick(this.item.title)" (click)="saveId(this.item.id)">{{item.title}}</a></p>
           <p class="minute">38 min</p>
           <div>
             <p class="tag"><mark>Microsoft Endpoint Manager</mark> &nbsp; <mark>Intermediate</mark></p>

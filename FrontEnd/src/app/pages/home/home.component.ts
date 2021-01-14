@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
   onclick(clickedtitle){
     localStorage.setItem('CourseTitle', clickedtitle);
   }
+  // tslint:disable-next-line: typedef
   saveId(clickedId){
     localStorage.setItem('CourseId', clickedId);
   }
