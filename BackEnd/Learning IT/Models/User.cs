@@ -20,9 +20,11 @@ namespace Learning_IT.Models
         public string LastName { get; set; }
         [Column(TypeName = "decimal(9,2)")]
         public Decimal Score { get; set; }
+        public string Image { get; set; }
         public virtual IList<UserRole> UserRoles { get; set; }
         public virtual IList<Article> Articles { get; set; }
         public virtual IList<UserCourse> UserCourses { get; set; }
+        public IList<UserBadge> UserBadges { get; set; }
 
     }
 }

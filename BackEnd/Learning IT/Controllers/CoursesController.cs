@@ -41,6 +41,36 @@ namespace Learning_IT.Controllers
             return course;
         }
 
+        //GET: Cursuri dupa level
+        [HttpGet("Level/{Level}")]
+        public  ActionResult<IEnumerable<Course>> GetCourseByLevel(string Level)
+        {
+            List<Course> courses = new List<Course>();
+            foreach (var item in _context.Courses)
+            {
+                if (item.Level == Level)
+                {
+                    courses.Add(item);
+                }
+            }
+            return courses;
+        }
+
+        //GET: Cursuri dupa categorie
+        [HttpGet("Categorie/{Categorie}")]
+        public ActionResult<IEnumerable<Course>> GetCourseByCategorie(string Categorie)
+        {
+            List<Course> courses = new List<Course>();
+            foreach (var item in _context.Courses)
+            {
+                if (item.Category == Categorie)
+                {
+                    courses.Add(item);
+                }
+            }
+            return courses;
+        }
+
         // PUT: api/Courses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
