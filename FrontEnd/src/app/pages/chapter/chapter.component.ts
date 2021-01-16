@@ -23,37 +23,53 @@ export class ChapterComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('From NgOnit' + this.curentId);
+    this.getCurrentChapter();
+
+  }
+
+  getCurrentChapter(): void {
 
     this.http.get<ChapterDetails[]>(this.appUrl + 'api/chapters/title/' + this.currentTitleCourse).subscribe((data) => {
       this.chapters = data;
+      localStorage.setItem('ChapterId', String(this.chapters[0].id));
     });
 
     this.http.get<ChapterDetails>(this.appUrl + 'api/chapters/' + this.curentId).subscribe((data) => {
       this.chapter = data;
     });
 
+
   }
 
   switchId(): void{
 
-    console.log(this.curentId);
-    console.log(this.position);
-    console.log(localStorage.getItem('ChapterId'));
-
-    this.chapters.forEach((chapter, index) => {
-      if (this.position === index) {
-      localStorage.setItem('ChapterId', String(chapter.id));
+    if (Number(localStorage.getItem('ChapterId')) < this.chapters[this.chapters.length - 1].id) {
+      for (let i = 0; i < this.chapters.length; i++){
+        if (this.chapters[i].id === Number(localStorage.getItem('ChapterId'))) {
+            localStorage.setItem('ChapterId', String(this.chapters[i + 1].id));
+            break;
+        }
       }
+    }
+    this.http.get<ChapterDetails>(this.appUrl + 'api/chapters/' + localStorage.getItem('ChapterId')).subscribe((data) => {
+      this.chapter = data;
     });
+  }
 
-    this.position++;
 
-    console.log(this.curentId);
-    console.log(this.position);
-    console.log(localStorage.getItem('ChapterId'));
-    this.curentId = localStorage.getItem('ChapterId');
-    this.router.navigate(['/chapter/' + String(localStorage.getItem('ChapterId'))], {skipLocationChange : true});
+  switchIdBack(): void {
 
+    if (Number(localStorage.getItem('ChapterId')) > this.chapters[0].id) {
+      for (let i = 0; i < this.chapters.length; i++){
+        if (this.chapters[i].id === Number(localStorage.getItem('ChapterId'))) {
+            localStorage.setItem('ChapterId', String(this.chapters[i - 1].id));
+            break;
+        }
+      }
+    }
+    this.http.get<ChapterDetails>(this.appUrl + 'api/chapters/' + localStorage.getItem('ChapterId')).subscribe((data) => {
+      this.chapter = data;
+    });
   }
 
 }

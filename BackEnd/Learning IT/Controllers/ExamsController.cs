@@ -43,11 +43,11 @@ namespace Learning_IT.Controllers
 
         // GET: api/Exams/Title
         [HttpGet("Title/{Title}")]
-        public ActionResult<Exam> GetExamByChapterName(string Title)
+        public ActionResult<Exam> GetExamByCourseName(string Title)
         {
             Exam exam = new Exam();
             int idChapter = 0;
-            foreach (var item in _context.Chapters)
+            foreach (var item in _context.Courses)
             {
                 if (item.Title == Title)
                 {
@@ -56,7 +56,7 @@ namespace Learning_IT.Controllers
             }
             foreach (var item in _context.Exams)
             {
-                if (item.ChapterId.Equals(idChapter))
+                if (item.CourseId.Equals(idChapter))
                 {
                     exam = item;
                 }
