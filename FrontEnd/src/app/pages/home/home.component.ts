@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   x: string;
   p = 1;
   courses: any;
+  userId: any;
   filterTerm: string;
   category = [
     {t: '.NET'},
@@ -45,7 +46,9 @@ export class HomeComponent implements OnInit {
     this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
     });
-
+    this.http.get<any>(this.appUrl + 'api/User/Email/' + localStorage.getItem("Email")).subscribe((data) => {
+      localStorage.setItem("Id",data);
+    });
    }
 
   ngOnInit(): void {

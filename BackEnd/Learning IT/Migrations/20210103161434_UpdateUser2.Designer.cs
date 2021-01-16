@@ -4,14 +4,16 @@ using Learning_IT.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Learning_IT.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210103161434_UpdateUser2")]
+    partial class UpdateUser2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,6 @@ namespace Learning_IT.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(48)");
@@ -90,12 +89,6 @@ namespace Learning_IT.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FlagFinished")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Time")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(64)");
@@ -114,23 +107,11 @@ namespace Learning_IT.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<int?>("Experience")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Level")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Time")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -148,12 +129,12 @@ namespace Learning_IT.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("varchar(256)");
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Points")
                         .HasColumnType("decimal(9,2)");
@@ -164,7 +145,7 @@ namespace Learning_IT.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId")
+                    b.HasIndex("ChapterId")
                         .IsUnique();
 
                     b.ToTable("Exams");
@@ -517,13 +498,13 @@ namespace Learning_IT.Migrations
 
             modelBuilder.Entity("Learning_IT.Models.Exam", b =>
                 {
-                    b.HasOne("Learning_IT.Models.Course", "Course")
+                    b.HasOne("Learning_IT.Models.Chapter", "Chapter")
                         .WithOne("Exam")
-                        .HasForeignKey("Learning_IT.Models.Exam", "CourseId")
+                        .HasForeignKey("Learning_IT.Models.Exam", "ChapterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Course");
+                    b.Navigation("Chapter");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.QuestionExam", b =>
@@ -639,11 +620,14 @@ namespace Learning_IT.Migrations
                     b.Navigation("AnswerQuestions");
                 });
 
+            modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
+                {
+                    b.Navigation("Exam");
+                });
+
             modelBuilder.Entity("Learning_IT.Models.Course", b =>
                 {
                     b.Navigation("Chapters");
-
-                    b.Navigation("Exam");
 
                     b.Navigation("UserCourses");
                 });
