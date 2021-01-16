@@ -24,6 +24,7 @@ namespace Learning_IT.Models
         public virtual IList<UserRole> UserRoles { get; set; }
         public virtual IList<Article> Articles { get; set; }
         public virtual IList<UserCourse> UserCourses { get; set; }
+        public IList<UserBadge> UserBadges { get; set; }
 
     }
 }

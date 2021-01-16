@@ -26,6 +26,7 @@ namespace Learning_IT.Models
         public string? Level { get; set; }
         [Column(TypeName ="int")]
         public int? Time { get; set; }
+        public Badge Badge { get; set; }
         public virtual IList<UserCourse> UserCourses { get; set; }
         public virtual IList<Chapter> Chapters { get; set; }
     }
