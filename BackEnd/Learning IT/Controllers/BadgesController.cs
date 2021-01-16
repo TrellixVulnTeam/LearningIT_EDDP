@@ -43,12 +43,12 @@ namespace Learning_IT.Controllers
 
         // POST api/<BadgesController>
         [HttpPost]
-        public async Task<ActionResult<Article>> Post([FromBody] Badge badge)
+        public async Task<ActionResult<Article>> Post(Badge badge)
         {
             _context.Badges.Add(badge);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetArticle", new { id = badge.Id }, badge);
+            return CreatedAtAction("Get", new { id = badge.Id }, badge);
         }
 
         // PUT api/<BadgesController>/5

@@ -41,6 +41,26 @@ namespace Learning_IT.Controllers
             return userBadge;
         }
 
+        // GET api/<UserBadgesController>/Get all badges by user id
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<UserBadge>> GetBadgesByUserId(int id)
+        {
+            var userBadge = await _context.UserBadges.FindAsync(id);
+            List<UserBadge> userBadges = new List<UserBadge>();
+            foreach(var item in _context.UserBadges)
+            {
+                userBadges.Add(item);
+            }
+            
+
+            if (userBadge == null)
+            {
+                return NotFound();
+            }
+
+            return userBadge;
+        }
+
         // POST api/<UserBadgesController>
         [HttpPost]
         public async Task<ActionResult<UserBadge>> Post([FromBody] UserBadge userBadge)
@@ -62,7 +82,7 @@ namespace Learning_IT.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserCourse", new { id = userBadge.UserID }, userBadge);
+            return CreatedAtAction("Get", new { id = userBadge.UserID }, userBadge);
         }
 
         // PUT api/<UserBadgesController>/5
