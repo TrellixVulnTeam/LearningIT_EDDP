@@ -1,16 +1,12 @@
-<p>
-    About us!
-  </p>
-  <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+<script src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9" data-require="angular.js@1.4.x"></script>
+    <script src="app.js"></script>
 
- 
-  <div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
-  </div>
+<input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+<div>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
+</div>
 
-  <div>
-    <img [src]="myimage2" width="200px" height="200px" alt="">
-  </div>
-  <div>
-    <button type="submit" class="btn btn-primary" (click)="displayPhoto()">Arata poza<i class="fas fa-sign-in-alt"></i></button>
-  </div>
+<div>
+  <img [src]="myimage2" width="200px" height="200px" alt="">
+</div>
+

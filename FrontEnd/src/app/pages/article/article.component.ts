@@ -1,12 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-const TEST = [
-  { id: 1,
-    title: 'Articolul 1',
-    Content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-    imageURL: 'https://media.wired.com/photos/5d31f0327e21db0008efc4ee/master/w_2560%2Cc_limit/Gear-Sony-RX100VI-SOURCE-Sony.jpg'
-  },
-];
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-article',
@@ -14,14 +8,29 @@ const TEST = [
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  test = TEST;
+  appUrl: string = environment.appUrl;
+  id: string;
+  title: string;
+  description: string;
+  userId: string;
+  imageURL: string;
+  firstName: string;
+  lastName: string;
 
-  constructor() {
-    // se face un get dupa ID-ul articolului pe care am dat click
-   }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-
+    this.http.get<any>(this.appUrl + 'api/articles/' + localStorage.getItem('ArticleId')).subscribe((data) => {
+      this.id = data.id;
+      this.title = data.title;
+      this.description = data.description;
+      this.userId = data.userId;
+      this.imageURL = data.imageURL;
+      this.http.get<any>(this.appUrl + 'api/user/' + this.userId).subscribe((dataa) => {
+        this.firstName = dataa.firstName;
+        this.lastName = dataa.lastName;
+      });
+    });
   }
 
 }

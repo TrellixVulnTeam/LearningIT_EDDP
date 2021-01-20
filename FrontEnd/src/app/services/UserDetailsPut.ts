@@ -6,4 +6,3 @@ export interface UserDetailPut {
     Score: number;
     Image: any;
   }
-  

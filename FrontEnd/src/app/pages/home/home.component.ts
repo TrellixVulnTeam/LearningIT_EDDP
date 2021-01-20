@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
   appUrl: string = environment.appUrl;
+  categoryy = false;
+  level = false;
   x: string;
   p = 1;
   courses: any;
@@ -46,21 +48,49 @@ export class HomeComponent implements OnInit {
     this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
       this.courses = data;
     });
-    this.http.get<any>(this.appUrl + 'api/User/Email/' + localStorage.getItem("Email")).subscribe((data) => {
-      localStorage.setItem("Id",data);
+    this.http.get<any>(this.appUrl + 'api/User/Email/' + localStorage.getItem('Email')).subscribe((data) => {
+      localStorage.setItem('UserId', data);
     });
    }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   // tslint:disable-next-line: typedef
   onclick(clickedtitle){
     localStorage.setItem('CourseTitle', clickedtitle);
   }
+
   // tslint:disable-next-line: typedef
   saveId(clickedId){
     localStorage.setItem('CourseId', clickedId);
+  }
+
+  fcategory(item): void{
+    if (this.categoryy === false){
+      this.http.get<any>(this.appUrl + 'api/courses/categorie/' + item).subscribe((data) => {
+        this.courses = data;
+      });
+      this.categoryy = true;
+    }
+    else {
+      this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
+        this.courses = data;
+      });
+      this.categoryy = false;
+    }
+  }
+  flevel(item): void {
+    if (this.level === false){
+      this.http.get<any>(this.appUrl + 'api/courses/level/' + item).subscribe((data) => {
+        this.courses = data;
+      });
+      this.level = true;
+    }
+    else {
+      this.http.get<any>(this.appUrl + 'api/courses').subscribe((data) => {
+        this.courses = data;
+      });
+      this.level = false;
+    }
   }
 }
