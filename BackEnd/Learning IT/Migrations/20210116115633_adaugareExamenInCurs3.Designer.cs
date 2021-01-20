@@ -4,14 +4,16 @@ using Learning_IT.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Learning_IT.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20210116115633_adaugareExamenInCurs3")]
+    partial class adaugareExamenInCurs3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,6 @@ namespace Learning_IT.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(48)");
@@ -75,30 +74,6 @@ namespace Learning_IT.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
-                });
-
-            modelBuilder.Entity("Learning_IT.Models.Badge", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(64)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId")
-                        .IsUnique();
-
-                    b.ToTable("Badges");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
@@ -258,9 +233,6 @@ namespace Learning_IT.Migrations
                     b.Property<string>("IdentityId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(32)");
 
@@ -270,21 +242,6 @@ namespace Learning_IT.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Learning_IT.Models.UserBadge", b =>
-                {
-                    b.Property<int>("BadgeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("BadgeId", "UserID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("UserBadge");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.UserCourse", b =>
@@ -543,17 +500,6 @@ namespace Learning_IT.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Learning_IT.Models.Badge", b =>
-                {
-                    b.HasOne("Learning_IT.Models.Course", "Course")
-                        .WithOne("Badge")
-                        .HasForeignKey("Learning_IT.Models.Badge", "CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-                });
-
             modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
                 {
                     b.HasOne("Learning_IT.Models.Course", "Course")
@@ -593,25 +539,6 @@ namespace Learning_IT.Migrations
                     b.Navigation("Exam");
 
                     b.Navigation("Question");
-                });
-
-            modelBuilder.Entity("Learning_IT.Models.UserBadge", b =>
-                {
-                    b.HasOne("Learning_IT.Models.Badge", "Badge")
-                        .WithMany("UserBadges")
-                        .HasForeignKey("BadgeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Learning_IT.Models.User", "User")
-                        .WithMany("UserBadges")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Badge");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.UserCourse", b =>
@@ -708,20 +635,8 @@ namespace Learning_IT.Migrations
                     b.Navigation("AnswerQuestions");
                 });
 
-            modelBuilder.Entity("Learning_IT.Models.Badge", b =>
-                {
-                    b.Navigation("UserBadges");
-                });
-
-            modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
-                {
-                    b.Navigation("Exam");
-                });
-
             modelBuilder.Entity("Learning_IT.Models.Course", b =>
                 {
-                    b.Navigation("Badge");
-
                     b.Navigation("Chapters");
 
                     b.Navigation("Exam");
@@ -749,8 +664,6 @@ namespace Learning_IT.Migrations
             modelBuilder.Entity("Learning_IT.Models.User", b =>
                 {
                     b.Navigation("Articles");
-
-                    b.Navigation("UserBadges");
 
                     b.Navigation("UserCourses");
 

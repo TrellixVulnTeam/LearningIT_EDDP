@@ -86,8 +86,8 @@ namespace Learning_IT.Models
             modelBuilder.Entity<Exam>().HasKey(e => e.Id);
 
             modelBuilder.Entity<Exam>()
-                .HasOne<Chapter>(e => e.Chapter)
-                .WithOne(ch => ch.Exam);
+                .HasOne<Course>(e => e.Course)
+                .WithOne(c => c.Exam);
                 //.HasForeignKey<Chapter>(c => c.CourseId);
 
             #endregion
@@ -125,6 +125,37 @@ namespace Learning_IT.Models
                 .WithMany(a => a.AnswerQuestions)
                 .HasForeignKey(aq => aq.AnswerId);
             #endregion
+
+            #region
+            //Constraint pentru tabela Badge-User - un user poate sa aiba mai multe badgeuri
+            //Many-To-Many
+
+            modelBuilder.Entity<User>().HasKey(c => c.Id);
+
+
+            modelBuilder.Entity<UserBadge>()
+                 .HasKey(uc => new { uc.BadgeId, uc.UserID });
+            modelBuilder.Entity<UserBadge>()
+                .HasOne<User>(uc => uc.User)
+                .WithMany(u => u.UserBadges)
+                .HasForeignKey(uc => uc.UserID);
+            modelBuilder.Entity<UserBadge>()
+                .HasOne<Badge>(uc => uc.Badge)
+                .WithMany(c => c.UserBadges)
+                .HasForeignKey(ur => ur.BadgeId);
+            #endregion
+
+            #region
+            //Badge la curs - One-To-One
+
+            modelBuilder.Entity<Badge>().HasKey(e => e.Id);
+
+            modelBuilder.Entity<Badge>()
+                .HasOne<Course>(e => e.Course)
+                .WithOne(ch => ch.Badge);
+            //.HasForeignKey<Chapter>(c => c.CourseId);
+
+            #endregion
         }
 
         public DbSet<User> Users { get; set; }
@@ -139,7 +170,7 @@ namespace Learning_IT.Models
         public DbSet<Question> Questions { get; set; }
         public DbSet<AnswerQuestion> AnswerQuestions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-
-
+        public DbSet<Badge> Badges { get; set; }
+        public DbSet<UserBadge> UserBadges { get; set; }
     }
 }

@@ -9,8 +9,6 @@ namespace Learning_IT.Models
 {
     public class Answer
     {
-        //COMENTARIU - dE LA BITU
-        [Key]
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(256)")]

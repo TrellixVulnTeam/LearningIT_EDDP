@@ -21,9 +21,9 @@ namespace Learning_IT.Models
         public Decimal Points { get; set; }
 
 
-        public int ChapterId { get; set; }
+        public int CourseId { get; set; }
 
-        public Chapter Chapter { get; set; }
+        public Course Course { get; set; }
 
         public virtual IList<QuestionExam> QuestionExams { get; set; }
 
