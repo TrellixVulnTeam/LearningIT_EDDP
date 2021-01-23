@@ -6,7 +6,6 @@ export class ChapterDetails {
   flagFinished: number;
   courseId: number;
 
-
   public constructor( id, title, content, time, flagFinished, courseId){
     this.id = id;
     this.title = title;

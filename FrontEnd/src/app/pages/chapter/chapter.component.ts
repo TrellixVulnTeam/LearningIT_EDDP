@@ -43,6 +43,10 @@ export class ChapterComponent implements OnInit {
 
   switchId(): void{
 
+    if (Number(localStorage.getItem('ChapterId')) === this.chapters[this.chapters.length - 1].id) {
+      this.router.navigateByUrl('/exams/' + localStorage.getItem('ExamId'));
+    }
+
     if (Number(localStorage.getItem('ChapterId')) < this.chapters[this.chapters.length - 1].id) {
       for (let i = 0; i < this.chapters.length; i++){
         if (this.chapters[i].id === Number(localStorage.getItem('ChapterId'))) {

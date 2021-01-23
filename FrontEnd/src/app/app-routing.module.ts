@@ -1,8 +1,8 @@
+import { ExamComponent } from './pages/exam/exam.component';
 import { AuthguardService as AuthGuard } from './services/authguard.service';
 import { EditarticleComponent } from './pages/editarticle/editarticle.component';
 import { AddarticleComponent } from './pages/addarticle/addarticle.component';
 import { MyprofileComponent } from './pages/myprofile/myprofile.component';
-import { ExamsComponent } from './pages/exams/exams.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleComponent } from './pages/article/article.component';
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   { path: 'chapter', component: ChapterComponent, canActivate: [AuthGuard]},
   { path: 'chapter/:id', component: ChapterComponent, canActivate: [AuthGuard] },
   { path: 'team', component: TeamComponent, canActivate: [AuthGuard]},
-  { path: 'exam', component: ExamsComponent, canActivate: [AuthGuard]},
+  { path: 'exam', component: ExamComponent, canActivate: [AuthGuard]},
   { path: 'my-profile', component: MyprofileComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/' }
 

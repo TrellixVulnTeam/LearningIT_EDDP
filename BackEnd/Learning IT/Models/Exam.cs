@@ -20,7 +20,6 @@ namespace Learning_IT.Models
         [Column(TypeName = "decimal(9,2)")]
         public Decimal Points { get; set; }
 
-
         public int CourseId { get; set; }
 
         public Course Course { get; set; }

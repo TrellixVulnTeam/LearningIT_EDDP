@@ -1,0 +1,20 @@
+<div class="container mt-sm-5 my-1">
+
+  <form (ngSubmit) = "verificaRezultat()">
+  <div class="question ml-sm-5 pl-sm-5 pt-2"  *ngFor="let question of questions">
+      <div class="py-2 h5"><b>Q. {{question.description}}</b></div>
+      <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+        <label class="options">A.{{question.raspunsA}} <input type="radio" (change)="verificaRaspunsCorect(question.id,'A')" name="radio"> <span class="checkmark"></span></label>
+        <label class="options">B.{{question.raspunsB}} <input type="radio" (change)="verificaRaspunsCorect(question.id,'B')" name="radio"><span class="checkmark"></span> </label>
+        <label class="options">C.{{question.raspunsC}} <input type="radio" (change)="verificaRaspunsCorect(question.id,'C')" name="radio"><span class="checkmark"></span> </label>
+        <label class="options">D.{{question.raspunsD}} <input type="radio" (change)="verificaRaspunsCorect(question.id,'D')" name="radio"> <span class="checkmark"></span> </label>
+       </div>
+  </div>
+
+  <div class="d-flex align-items-center pt-3">
+      <div class="ml-auto mr-sm-5"> <button type="submit" class="btn btn-success"   >Check Result</button> </div>
+  </div>
+
+  </form>
+</div>
+
