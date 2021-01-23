@@ -99,10 +99,11 @@ export class ExamComponent implements OnInit {
   verificaRezultat(): void {
     // tslint:disable-next-line:prefer-for-of
     if (this.verificaToateRaspunsurile() === 1) {
-      console.log("Badge castigat");
+      // Post de salvare Badge la user
+      // Redirect catre castigat badge
     }
     else {
-      console.log("Catre Homeee");
+      // redirect catre Home
     }
 
   }
