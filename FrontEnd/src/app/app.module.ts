@@ -1,5 +1,8 @@
-import { ExamComponent } from './pages/exam/exam.component';
+import { EditarticleComponent } from './pages/editarticle/editarticle.component';
+import { AddarticleComponent } from './pages/addarticle/addarticle.component';
+import { MyprofileComponent } from './pages/myprofile/myprofile.component';
 import { FooterComponent } from './elements/footer/footer.component';
+import { ExamsComponent } from './pages/exams/exams.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -40,8 +43,11 @@ import { ArticlesComponent } from './pages/articles/articles.component';
     UserRankComponent,
     HeaderRankComponent,
     UsersRankListComponent,
+    ExamsComponent,
     ArticlesComponent,
-    ExamComponent
+    MyprofileComponent,
+    AddarticleComponent,
+    EditarticleComponent
 
    ],
   imports: [

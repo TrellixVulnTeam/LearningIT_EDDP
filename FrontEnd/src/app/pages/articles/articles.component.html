@@ -1,19 +1,25 @@
+<div class="container pt-3 pl-5">
+  <button type="button" class="btn btn-primary" routerLink="/add-article">Add Article</button>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="articol" *ngFor="let item of test">
+      <div class="articol" *ngFor="let item of articles">
         <div>
           <img class="picture" src="{{item.imageURL}}" alt="poza">
         </div>
+        <div class="pl-2">
+          {{item.title}}
+        </div>
         <div class="cut-text">
-          {{item.Content}}
+          {{item.description}}
         </div>
         <div class="btn-group btn-group-toggle tab" data-toggle="buttons">
           <label class="btn btn-outline-secondary">
             <input routerLink="/article" (click)="onclick(item.id)" type="radio" name="options" id="option1"> View
           </label>
           <label class="btn btn-outline-secondary">
-            <input type="radio" name="options" id="option2"> Edit
+            <input routerLink="/edit-article" (click)="onclick(item.id)" type="radio" name="options" id="option2"> Edit
           </label>
         </div>
       </div>

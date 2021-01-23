@@ -39,10 +39,7 @@ export class AuthService {
 
   // tslint:disable-next-line: typedef
   logout() {
-    localStorage.removeItem('Email');
-    localStorage.removeItem('FirstName');
-    localStorage.removeItem('LastName');
-    localStorage.removeItem('message');
+    localStorage.clear();
   }
   // tslint:disable-next-line: typedef
   register(model: any){

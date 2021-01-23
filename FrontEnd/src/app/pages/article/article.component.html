@@ -1,12 +1,16 @@
-<div class="container">
+<div class="container pb-4">
   <div class="row">
     <div class="col-12">
-      <div class="articol" *ngFor="let item of test">
-        <div>
-          <img class="picture" src="{{item.imageURL}}" alt="poza">
+      <div class="articol">
+        <div class="pt-4">
+          <img class="picture" src="{{imageURL}}" alt="poza">
         </div>
         <div class="content">
-          {{item.Content}}
+          <h1>{{title}}</h1>
+          <div innerHTML={{description}}></div>
+        </div>
+        <div class="content">
+          By: {{firstName}} {{lastName}}
         </div>
       </div>
     </div>
