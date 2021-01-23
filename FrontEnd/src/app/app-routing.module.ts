@@ -1,7 +1,7 @@
+import { ExamComponent } from './pages/exam/exam.component';
 import { EditarticleComponent } from './pages/editarticle/editarticle.component';
 import { AddarticleComponent } from './pages/addarticle/addarticle.component';
 import { MyprofileComponent } from './pages/myprofile/myprofile.component';
-import { ExamsComponent } from './pages/exams/exams.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArticleComponent } from './pages/article/article.component';
@@ -28,7 +28,7 @@ const appRoutes: Routes = [
   { path: 'chapter', component: ChapterComponent},
   { path: 'chapter/:id', component: ChapterComponent },
   { path: 'team', component: TeamComponent},
-  { path: 'exam', component: ExamsComponent},
+  { path: 'exam', component: ExamComponent},
   { path: 'my-profile', component: MyprofileComponent},
   { path: '**', redirectTo: '/' }
 

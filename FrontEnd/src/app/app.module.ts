@@ -2,7 +2,6 @@ import { EditarticleComponent } from './pages/editarticle/editarticle.component'
 import { AddarticleComponent } from './pages/addarticle/addarticle.component';
 import { MyprofileComponent } from './pages/myprofile/myprofile.component';
 import { FooterComponent } from './elements/footer/footer.component';
-import { ExamsComponent } from './pages/exams/exams.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import { ExamComponent } from './pages/exam/exam.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
     UserRankComponent,
     HeaderRankComponent,
     UsersRankListComponent,
-    ExamsComponent,
+    ExamComponent,
     ArticlesComponent,
     MyprofileComponent,
     AddarticleComponent,
