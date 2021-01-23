@@ -30,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'chapter', component: ChapterComponent, canActivate: [AuthGuard]},
   { path: 'chapter/:id', component: ChapterComponent, canActivate: [AuthGuard] },
   { path: 'team', component: TeamComponent, canActivate: [AuthGuard]},
-  { path: 'exam', component: ExamComponent, canActivate: [AuthGuard]},
+  { path: 'exams', component: ExamComponent, canActivate: [AuthGuard]},
+  { path: 'exams/:id', component: ExamComponent, canActivate: [AuthGuard] },
   { path: 'my-profile', component: MyprofileComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/' }
 
