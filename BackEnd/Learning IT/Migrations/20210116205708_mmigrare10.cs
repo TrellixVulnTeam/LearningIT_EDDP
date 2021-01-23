@@ -2,7 +2,7 @@
 
 namespace Learning_IT.Migrations
 {
-    public partial class adaugareAnswers : Migration
+    public partial class mmigrare10 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

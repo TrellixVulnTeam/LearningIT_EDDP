@@ -15,6 +15,15 @@ namespace Learning_IT.Models
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Description { get; set; }
+
+        public string RaspunsA { get; set; }
+        public string RaspunsB { get; set; }
+        public string RaspunsC { get; set; }
+        public string RaspunsD { get; set; }
+
+        public int RaspunsCorect { get; set; }
+
+
         public virtual IList<QuestionExam> QuestionExams { get; set; }
 
         public virtual IList<AnswerQuestion> AnswerQuestions { get; set; }

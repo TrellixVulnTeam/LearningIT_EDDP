@@ -25,5 +25,8 @@ namespace Learning_IT.Models
         public int? FlagFinished { get; set; }
         public int CourseId { get; set; }
         public Course Course { get; set; }
+
+        //public Exam Exam { get; set; }
+
     }
 }
