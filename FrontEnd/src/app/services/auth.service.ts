@@ -14,6 +14,7 @@ export class AuthService {
   FirstName: string;
   LastName: string;
   Email: string;
+  Score: number;
   constructor( private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
@@ -24,9 +25,11 @@ export class AuthService {
         this.Email = decodedToken.Email;
         this.FirstName = decodedToken.FirstName;
         this.LastName = decodedToken.LastName;
+        this.Score = decodedToken.Score;
         localStorage.setItem('Email', decodedToken.Email);
         localStorage.setItem('FirstName', decodedToken.FirstName);
         localStorage.setItem('LastName', decodedToken.LastName);
+        localStorage.setItem('Score', decodedToken.Score);
         localStorage.setItem('message', response.message);
       })
     );

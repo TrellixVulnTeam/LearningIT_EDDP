@@ -9,6 +9,7 @@ body {
 	border-radius: 0;
 	border: none;
 	box-shadow: 0 0 4px rgba(40, 3, 100, 0.1);
+
 }
 .navbar img {
 	border-radius: 50%;
@@ -23,7 +24,7 @@ body {
 	font-size: 24px;
 }
 .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-	color: #fff;
+	color: rgb(14, 13, 13);
 }
 .navbar .navbar-brand i {
 	font-size: 25px;
@@ -70,12 +71,13 @@ body {
 	font-size: 14px;
 }
 .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
-	color: #fff;
+	color: rgb(0, 0, 0);
 	text-shadow: 0 0 4px rgba(255,255,255,0.3);
 }
 .navbar .navbar-nav > a > i {
 	display: block;
 	text-align: center;
+
 }
 .navbar .dropdown-item i {
 	font-size: 16px;

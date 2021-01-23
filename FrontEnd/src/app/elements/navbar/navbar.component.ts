@@ -1,3 +1,4 @@
+import { getTestBed } from '@angular/core/testing';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +11,16 @@ export class NavbarComponent implements OnInit {
   FirstName: string;
   LastName: string;
   Email: string;
+  Score: number;
   constructor(public authService: AuthService) {
     this.FirstName = localStorage.getItem('FirstName');
     this.LastName = localStorage.getItem('LastName');
     this.Email = localStorage.getItem('Email');
+    this.Score = 30
+
    }
+
+   
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
