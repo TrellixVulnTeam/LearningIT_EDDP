@@ -1,3 +1,4 @@
+import { AuthguardService as AuthGuard } from './services/authguard.service';
 import { EditarticleComponent } from './pages/editarticle/editarticle.component';
 import { AddarticleComponent } from './pages/addarticle/addarticle.component';
 import { MyprofileComponent } from './pages/myprofile/myprofile.component';
@@ -13,23 +14,24 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ChapterComponent } from './pages/chapter/chapter.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import { CanActivate } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'article', component: ArticleComponent },
-  { path: 'add-article', component: AddarticleComponent },
-  { path: 'edit-article', component: EditarticleComponent },
-  { path: 'articles', component: ArticlesComponent },
-  { path: 'leaderboard', component: LeaderboardComponent },
-  { path: 'course', component: CourseComponent },
-  { path: 'chapter', component: ChapterComponent},
-  { path: 'chapter/:id', component: ChapterComponent },
-  { path: 'team', component: TeamComponent},
-  { path: 'exam', component: ExamsComponent},
-  { path: 'my-profile', component: MyprofileComponent},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'article', component: ArticleComponent, canActivate: [AuthGuard]},
+  { path: 'add-article', component: AddarticleComponent, canActivate: [AuthGuard] },
+  { path: 'edit-article', component: EditarticleComponent, canActivate: [AuthGuard] },
+  { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
+  { path: 'leaderboard', component: LeaderboardComponent, canActivate: [AuthGuard] },
+  { path: 'course', component: CourseComponent, canActivate: [AuthGuard] },
+  { path: 'chapter', component: ChapterComponent, canActivate: [AuthGuard]},
+  { path: 'chapter/:id', component: ChapterComponent, canActivate: [AuthGuard] },
+  { path: 'team', component: TeamComponent, canActivate: [AuthGuard]},
+  { path: 'exam', component: ExamsComponent, canActivate: [AuthGuard]},
+  { path: 'my-profile', component: MyprofileComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/' }
 
 ];

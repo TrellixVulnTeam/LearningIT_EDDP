@@ -32,7 +32,7 @@ export class AuthService {
     );
   }
 
-  loggedIn(): boolean{
+  public loggedIn(): boolean{
     const message = localStorage.getItem('message');
     return !this.helper.isTokenExpired(message);
   }
