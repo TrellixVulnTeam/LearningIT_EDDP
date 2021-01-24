@@ -1,6 +1,10 @@
 import { getTestBed } from '@angular/core/testing';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SharedService } from 'src/app/services/shared.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +12,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  clickEventsubscription: Subscription;
   FirstName: string;
   LastName: string;
   Email: string;
-  Score: number;
+  constructor(
+    public authService: AuthService,
+    private sharedService: SharedService,
+    private router: Router,
+    private toastr: ToastrService
+    ) {
   constructor(public authService: AuthService) {
     this.FirstName = localStorage.getItem('FirstName');
     this.LastName = localStorage.getItem('LastName');
     this.Email = localStorage.getItem('Email');
-    this.Score = 30
+    this.clickEventsubscription = this.sharedService.getClickEvent().subscribe( () => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    });
+  }
 
    }
 

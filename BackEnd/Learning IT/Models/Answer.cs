@@ -9,12 +9,11 @@ namespace Learning_IT.Models
 {
     public class Answer
     {
-        //COMENTARIU - dE LA BITU
-        [Key]
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Content { get; set; }
+
         public IList<AnswerQuestion> AnswerQuestions { get; set; }
     }
 }

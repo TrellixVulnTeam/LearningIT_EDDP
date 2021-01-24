@@ -10,14 +10,14 @@
       <h5>Category</h5>
       <ul class="filtre-category">
         <li *ngFor="let item of category">
-          <input type="checkbox">
+          <input type="checkbox" (click)="fcategory(item.t)">
           <label class="label-text-size">{{item.t}}</label>
         </li>
       </ul>
       <h5>Levels</h5>
       <ul class="filtre-level">
         <li *ngFor="let item of levels">
-          <input type="checkbox">
+          <input type="checkbox" (click)="flevel(item.t)">
           <label class="label-text-size">{{item.t}}</label>
         </li>
       </ul>
@@ -34,10 +34,10 @@
         </div>
         <div class="partea-alba">
           <p class="MODULE">MODULE</p>
-          <p class="p-partea-alba"><a routerLink="/course" (click)="onclick(this.item.title)">{{item.title}}</a></p>
-          <p class="minute">38 min</p>
+          <p class="p-partea-alba"><a routerLink="/course" (click)="onclick(this.item.title)" (click)="saveId(this.item.id)">{{item.title}}</a></p>
+          <p class="minute">{{item.time}} min</p>
           <div>
-            <p class="tag"><mark>Microsoft Endpoint Manager</mark> &nbsp; <mark>Intermediate</mark></p>
+            <p class="tag"><mark>{{item.category}}</mark> &nbsp; <mark>{{item.level}}</mark></p>
           </div>
           <div class="linie-parte-alba"></div>
         </div>

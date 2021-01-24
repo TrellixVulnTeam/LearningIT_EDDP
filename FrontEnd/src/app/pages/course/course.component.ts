@@ -1,3 +1,4 @@
+import { ExamDetalis } from './../utils/ExamDetails';
 import { HomeComponent } from './../home/home.component';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class CourseComponent implements OnInit{
   public capitole: ChapterDetails[];
   public firstChapter: ChapterDetails;
   public course: CourseDetails;
+  public exam: ExamDetalis;
   appUrl: string = environment.appUrl;
   selectedChapter = '';
   currenttitle = localStorage.getItem('CourseTitle');
@@ -30,20 +32,24 @@ export class CourseComponent implements OnInit{
       this.course = data;
     });
 
+    this.http.get<ExamDetalis>(this.appUrl + 'api/exams/course/' + this.curentId).subscribe((data) => {
+      this.exam = data;
+      localStorage.setItem('ExamId', String(this.exam.id));
+      console.log(this.exam);
+    });
+
+
     this.http.get<ChapterDetails[]>(this.appUrl + 'api/chapters/title/' + this.currenttitle).subscribe((data) => {
       this.capitole = data;
       this.firstChapter = data[0];
     });
-
-  }
+    }
 
 
   saveChaperId(ChaperId): void {
     localStorage.setItem('ChapterId', ChaperId);
     localStorage.setItem('CurentTitleCourse', this.currenttitle);
   }
-
-  // tslint:disable-next-line: typedef
 
 }
 

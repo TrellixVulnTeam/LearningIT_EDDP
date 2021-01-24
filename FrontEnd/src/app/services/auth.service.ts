@@ -35,17 +35,14 @@ export class AuthService {
     );
   }
 
-  loggedIn(): boolean{
+  public loggedIn(): boolean{
     const message = localStorage.getItem('message');
     return !this.helper.isTokenExpired(message);
   }
 
   // tslint:disable-next-line: typedef
   logout() {
-    localStorage.removeItem('Email');
-    localStorage.removeItem('FirstName');
-    localStorage.removeItem('LastName');
-    localStorage.removeItem('message');
+    localStorage.clear();
   }
   // tslint:disable-next-line: typedef
   register(model: any){
