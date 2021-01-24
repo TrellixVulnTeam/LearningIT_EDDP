@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService
     ) {
-  constructor(public authService: AuthService) {
+
     this.FirstName = localStorage.getItem('FirstName');
     this.LastName = localStorage.getItem('LastName');
     this.Email = localStorage.getItem('Email');
@@ -31,11 +31,8 @@ export class NavbarComponent implements OnInit {
         window.location.reload();
       }, 1000);
     });
-  }
-
    }
 
-   
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
