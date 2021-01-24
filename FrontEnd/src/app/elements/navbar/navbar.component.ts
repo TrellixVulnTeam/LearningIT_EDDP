@@ -1,3 +1,4 @@
+import { getTestBed } from '@angular/core/testing';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService
     ) {
+
     this.FirstName = localStorage.getItem('FirstName');
     this.LastName = localStorage.getItem('LastName');
     this.Email = localStorage.getItem('Email');
@@ -29,9 +31,15 @@ export class NavbarComponent implements OnInit {
         window.location.reload();
       }, 3000);
     });
-  }
+   }
 
-  ngOnInit(): void {  }
+
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
+    // this.FirstName = localStorage.getItem('FirstName');
+    // this.LastName = localStorage.getItem('LastName');
+    // this.Email = localStorage.getItem('Email');
+  }
 
   isloggedIn(): boolean{
     return this.authService.loggedIn() === true ? true : false;
