@@ -58,14 +58,14 @@ namespace Learning_IT.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(48)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -204,6 +204,21 @@ namespace Learning_IT.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("RaspunsA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RaspunsB")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RaspunsC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RaspunsCorect")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RaspunsD")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -711,11 +726,6 @@ namespace Learning_IT.Migrations
             modelBuilder.Entity("Learning_IT.Models.Badge", b =>
                 {
                     b.Navigation("UserBadges");
-                });
-
-            modelBuilder.Entity("Learning_IT.Models.Chapter", b =>
-                {
-                    b.Navigation("Exam");
                 });
 
             modelBuilder.Entity("Learning_IT.Models.Course", b =>

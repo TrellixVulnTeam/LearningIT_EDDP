@@ -1,16 +1,43 @@
-<p>
-    About us!
-  </p>
-  <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  button
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin-top: 10%;" role="document">
+    <div class="modal-content">
+      <div>
+        <!-- class="modal-header" -->
+        <button type="button" class="close pr-3 pt-2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-title text-center" id="exampleModalLabel">Congratulations!</h2>
+      </div>
+      <p class="pl-2">You earned experience points for completing the knowledge check.</p>
+      <img src="https://i.ibb.co/3MsvB9J/succes.png" class="poza">
+      <div class="hexagon">
+        <div class="test1"> </div>
+        <div class="test2">
+          <p class="experience">200 xp</p>
+        </div>
+        <div class="test3"> </div>
+      </div>
+      <div class="pb-3 pt-3" style="margin-left: 200px;">
+        <!-- class="modal-footer" -->
+        <button type="button" class="btn btn-primary"  data-dismiss="modal">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
 
- 
-  <div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
-  </div>
 
-  <div>
-    <img [src]="myimage2" width="200px" height="200px" alt="">
+<div class="p-5">
+  <div class="test1">
   </div>
-  <div>
-    <button type="submit" class="btn btn-primary" (click)="displayPhoto()">Arata poza<i class="fas fa-sign-in-alt"></i></button>
+  <div class="test2">
   </div>
+  <div class="test3">
+  </div>
+</div>
+
+

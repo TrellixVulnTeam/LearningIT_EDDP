@@ -1,0 +1,79 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="container top">
+  <div class="row">
+    <div class="col-3 pt-4 pl-5">
+      <img class="poza" [src]="myimage2" width="150px" height="150px" alt="poza">
+    </div>
+    <div class="col-9 mt-5">
+      <h1>{{this.myUserPut.FirstName}} {{this.myUserPut.LastName}}</h1>
+      <h6>{{Email}}</h6>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <p>Level: 1</p>
+          </div>
+          <div class="col-6 pt-1">
+            <div class="progress" style="background-color: #e3e3e3">
+              <div class="progress-bar" role="progressbar" [ngStyle]="{'width': xp+'%', 'aria-valuenow':xp, 'aria-valuemin':'0', 'aria-valuemax':'100', 'background-color': 'green'}">{{xp}}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container down" [ngStyle]="{'height': 'auto'}">
+  <div class="row" data-toggle="collapse" data-target="#settings" >
+    <div class="col-xl-11">
+      <h4>Settings</h4>
+    </div>
+    <div class="col-1 pt-1">
+      <img src="https://i.ibb.co/LJmFTqP/arrow-down-sign-to-navigate.png" width="20px" height="20px">
+    </div>
+  </div>
+  <div id="settings" class="collapse">
+    <div class="scris">
+      <div class="pt-2 pb-2">
+        <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+        <button style="float: right;" type="submit" class="btn btn-primary" (click)="onSubmit1()" (click)="onSubmit2()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="update(f)">
+        <label for="firstName">FirstName</label>
+        <input type="text" value="{{this.myUserPut.FirstName}}" [(ngModel)]="this.myUserPut.FirstName" name="firstName" class="form-control" id="firstName">
+        <label for="lastName">LastName</label>
+        <input type="text" value="{{this.myUserPut.LastName}}" [(ngModel)]="this.myUserPut.LastName" name="lastName" class="form-control" id="lastName">
+        <div class="pt-4 pb-4">
+          <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Modifica<i class="fas fa-sign-in-alt"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container down" [ngStyle]="{'height': 'auto'}">
+  <div class="row" data-toggle="collapse" data-target="#badges" >
+    <div class="col-xl-11">
+      <h4>Badges</h4>
+    </div>
+    <div class="col-1 pt-1">
+      <img src="https://i.ibb.co/LJmFTqP/arrow-down-sign-to-navigate.png" width="20px" height="20px">
+    </div>
+  </div>
+  <div id="badges" class="collapse">
+    <div class="row d-flex justify-content-center">
+      <div class="col-3 mr-3" *ngFor="let item of test">
+        <div class="list-courses"> <br>
+          <div class="icon">
+            <img class="center" width="50" height="50" src="https://i.ibb.co/h21FxsJ/angular.png" alt="poza">
+          </div>
+          <p class="BADGE">BADGE</p>
+          <p class="p-partea-alba">TITLE</p>
+          <p class="minute">16.01.2021</p>
+        </div>
+      </div>
+    </div><br>
+  </div>
+</div>

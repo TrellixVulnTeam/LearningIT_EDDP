@@ -5,5 +5,4 @@ export interface UserDetail {
     lastName: string;
     score: number;
     image: any;
-  }
-  
+}

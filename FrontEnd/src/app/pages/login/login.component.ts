@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SharedService } from 'src/app/services/shared.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
 
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.login(f.value).subscribe(loginObserver);
+    this.sharedService.sendClickEvent();
   }
 
 }

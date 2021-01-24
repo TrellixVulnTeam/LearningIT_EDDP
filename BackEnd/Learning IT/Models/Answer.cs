@@ -13,6 +13,7 @@ namespace Learning_IT.Models
         [Required]
         [Column(TypeName = "nvarchar(256)")]
         public string Content { get; set; }
+
         public IList<AnswerQuestion> AnswerQuestions { get; set; }
     }
 }

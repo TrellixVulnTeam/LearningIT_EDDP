@@ -88,7 +88,7 @@ namespace Learning_IT.Models
             modelBuilder.Entity<Exam>()
                 .HasOne<Course>(e => e.Course)
                 .WithOne(c => c.Exam);
-                //.HasForeignKey<Chapter>(c => c.CourseId);
+                //.HasForeignKey<Course>(c => c.Id);
 
             #endregion
 

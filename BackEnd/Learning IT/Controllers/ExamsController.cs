@@ -41,13 +41,65 @@ namespace Learning_IT.Controllers
             return exam;
         }
 
+
+        [HttpGet("QuestionsExam/{ExamId}")]
+        public ActionResult<List<Question>> GetQuestionsExam (int ExamId)
+        {
+            List<Question> questionsList = new List<Question>();
+
+
+            foreach(var questionExam in _context.QuestionExams)
+            {
+                if (questionExam.ExamId == ExamId)
+                {
+                    foreach(var questionItem in _context.Questions)
+                    {
+                        if (questionItem.Id == questionExam.QuestionId)
+                        {
+                            questionsList.Add(questionItem);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return questionsList;
+        }
+
+
+        [HttpGet("Course/{CourseId}")]
+        public ActionResult<Exam> GetExamCourse(int CourseId)
+        {
+            Exam exam = new Exam();
+            int idCourse = 0;
+            foreach (var course in _context.Courses)
+            {
+                if (course.Id == CourseId)
+                {
+                    idCourse = course.Id;
+                    break;
+                }
+            }
+            foreach (var examItem in _context.Exams)
+            {
+                if (examItem.CourseId == idCourse)
+                {
+                    exam = examItem;
+                    break;
+                }
+            }
+
+            return exam;
+
+        }
+
         // GET: api/Exams/Title
         [HttpGet("Title/{Title}")]
         public ActionResult<Exam> GetExamByCourseName(string Title)
         {
             Exam exam = new Exam();
             int idChapter = 0;
-            foreach (var item in _context.Courses)
+            foreach (var item in _context.Chapters)
             {
                 if (item.Title == Title)
                 {
@@ -56,10 +108,10 @@ namespace Learning_IT.Controllers
             }
             foreach (var item in _context.Exams)
             {
-                if (item.CourseId.Equals(idChapter))
-                {
-                    exam = item;
-                }
+                //if (item.ChapterId.Equals(idChapter))
+                //{
+                //    exam = item;
+                //}
             }
             return exam;
         }
