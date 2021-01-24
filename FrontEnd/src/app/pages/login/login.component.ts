@@ -31,9 +31,7 @@ export class LoginComponent implements OnInit {
       next: (x) => {
         // this.toastr.success('Welcome back ' + localStorage.getItem('FirstName') + ' ' + localStorage.getItem('LastName'));
         this.toastr.success('Welcome back ' + this.authService.FirstName + ' ' + this.authService.LastName);
-        setTimeout(() => {
-          this.router.navigate(['/home']);
-      });
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         this.toastr.error('Fail');
@@ -41,7 +39,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.login(f.value).subscribe(loginObserver);
-    this.sharedService.sendClickEvent();
+    // this.sharedService.sendClickEvent();
   }
 
 }

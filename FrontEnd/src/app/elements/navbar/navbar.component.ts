@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
     this.clickEventsubscription = this.sharedService.getClickEvent().subscribe( () => {
       setTimeout(() => {
         window.location.reload();
-      }, 1000);
+      }, 3000);
     });
   }
 

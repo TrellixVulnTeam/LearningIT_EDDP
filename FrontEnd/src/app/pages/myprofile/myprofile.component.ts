@@ -25,7 +25,9 @@ const TEST = [
 })
 export class MyprofileComponent implements OnInit {
   test = TEST;
-  xp = 69;
+  level = 1;
+  procent: number;
+  score = 11000;
   FirstName: string;
   LastName: string;
   Email = localStorage.getItem('Email');
@@ -65,6 +67,7 @@ export class MyprofileComponent implements OnInit {
       this.FirstName = data.firstName;
       this.LastName = data.lastName;
     });
+    this.calculareNivel();
   }
 
   // tslint:disable-next-line: typedef
@@ -131,5 +134,24 @@ export class MyprofileComponent implements OnInit {
     localStorage.setItem('FirstName', this.myUserPut.FirstName);
     localStorage.setItem('LastName', this.myUserPut.LastName);
     window.location.reload();
+  }
+
+  calculareNivel(): void{
+    if (this.score < 1000){
+      this.level = 1;
+      this.procent = this.score;
+    }
+    if (this.score >= 1000 && this.score < 3000){
+      this.level = 2;
+      this.procent = (this.score - 1000) / ((3000 - 1000) / 100);
+    }
+    if (this.score >= 3000 && this.score < 10000){
+      this.level = 3;
+      this.procent = (this.score - 3000) / ((10000 - 3000) / 100);
+    }
+    if (this.score >= 10000 && this.score < 20000){
+      this.level = 4;
+      this.procent = (this.score - 10000) / ((20000 - 10000) / 100);
+    }
   }
 }

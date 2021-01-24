@@ -1,51 +1,67 @@
-
-
 .rectangle {margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  width: 910px;
-  background: #f4f7f7;
-  border: 0.2px solid rgb(224, 224, 224);
+  float: left;
   border-radius: 7px;
-  margin-top:50px;
-  box-shadow: 1px 1px 1.5px 1px #e2e2e2;
+  margin-top: 20px;
+  margin-left: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 900px;
+  height: 100%;
 }
 
 .title {
-  margin-top: 45px;
+  font-size: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
   margin-left: 65px;
 }
 
-#parallelogram {
-  margin-top: 55px;
-	width: 75px;
-	height: 20px;
-  background: #128a2c;
-  border: 0.3px solid rgb(16, 102, 73);
-  box-shadow: 1px 1px 1.5px 1px #072b1c;
+.experience {
+  transform: skew(0deg);
   text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
 }
 
-.experience{
- color: #e2e2e2;
- margin-top: -3px;
+.test1{
+  float: left;
+  border-right: 11px solid #128712;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+}
+.test2{
+  float: left;
+  width: 80px;
+  height: 22px;
+  background-color: #128712;
+}
+.test3{
+  float: left;
+  border-left: 11px solid #128712;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+}
+
+.hexagon{
+  margin-top: 20px;
+  margin-left: 60px;
 }
 
 .time {
   color: #292828;
+  margin-top: -20px;
   margin-left: 80px;
 }
 
 .content {
   max-width: 85%;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 80px;
 }
 
-.next{
+.nav{
   margin-top: 15px;
-  margin-left: 80px;
+  margin-left: 50px;
 }
 
 #nextButton {

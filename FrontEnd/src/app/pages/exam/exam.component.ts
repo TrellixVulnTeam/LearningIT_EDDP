@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ExamComponent implements OnInit {
 
+  apare = false;
   public questions: QuestionDetails[];
   appUrl: string = environment.appUrl;
   public numarRaspunsuriCorecte = 0;
@@ -19,7 +20,7 @@ export class ExamComponent implements OnInit {
 
   constructor(private secretService: SecretService, private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.http.get<QuestionDetails[]>(this.appUrl + 'api/exams/questionsExam/' + localStorage.getItem('ExamId')).subscribe((data) => {
       this.questions = data;
 
@@ -35,6 +36,7 @@ export class ExamComponent implements OnInit {
 
   verificaRaspunsCorect(id, raspuns): void {
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.questions.length; i++){
       if (this.questions[i].id === id) {
           if (this.questions[i].raspunsCorect === 1 ) {
@@ -87,9 +89,10 @@ export class ExamComponent implements OnInit {
   }
 
   verificaToateRaspunsurile(): any {
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.questions.length; i++)
     {
-      if(this.mapAnswers.get (this.questions[i].id) !== 0) {
+      if (this.mapAnswers.get (this.questions[i].id) !== 0) {
         return 0;
       }
     }
@@ -99,10 +102,12 @@ export class ExamComponent implements OnInit {
   verificaRezultat(): void {
     // tslint:disable-next-line:prefer-for-of
     if (this.verificaToateRaspunsurile() === 1) {
-      console.log("Badge castigat");
+      console.log('Badge castigat');
+      this.apare = true;
     }
     else {
-      console.log("Catre Homeee");
+      console.log('Catre Homeee');
+      this.apare = false;
     }
 
   }
