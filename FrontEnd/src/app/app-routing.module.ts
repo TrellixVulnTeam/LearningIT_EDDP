@@ -18,8 +18,8 @@ import { CanActivate } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'article', component: ArticleComponent, canActivate: [AuthGuard]},
   { path: 'add-article', component: AddarticleComponent, canActivate: [AuthGuard] },

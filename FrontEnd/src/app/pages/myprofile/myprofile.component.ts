@@ -27,7 +27,8 @@ export class MyprofileComponent implements OnInit {
   test = TEST;
   level = 1;
   procent: number;
-  score = 11000;
+  // score = 11000;
+  score: number;
   FirstName: string;
   LastName: string;
   Email = localStorage.getItem('Email');
@@ -66,8 +67,10 @@ export class MyprofileComponent implements OnInit {
       this.myUserPut.Image = data.image;
       this.FirstName = data.firstName;
       this.LastName = data.lastName;
+      this.score = Number(data.score);
+      console.log(this.score);
+      this.calculareNivel();
     });
-    this.calculareNivel();
   }
 
   // tslint:disable-next-line: typedef
@@ -139,7 +142,7 @@ export class MyprofileComponent implements OnInit {
   calculareNivel(): void{
     if (this.score < 1000){
       this.level = 1;
-      this.procent = this.score;
+      this.procent = this.score / 10;
     }
     if (this.score >= 1000 && this.score < 3000){
       this.level = 2;

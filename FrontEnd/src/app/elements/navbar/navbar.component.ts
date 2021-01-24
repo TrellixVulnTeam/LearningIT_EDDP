@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +14,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  appUrl: string = environment.appUrl;
+  img: any;
   clickEventsubscription: Subscription;
   FirstName: string;
   LastName: string;
@@ -20,25 +24,24 @@ export class NavbarComponent implements OnInit {
     public authService: AuthService,
     private sharedService: SharedService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private http: HttpClient,
     ) {
-
-    this.FirstName = localStorage.getItem('FirstName');
-    this.LastName = localStorage.getItem('LastName');
-    this.Email = localStorage.getItem('Email');
     this.clickEventsubscription = this.sharedService.getClickEvent().subscribe( () => {
       setTimeout(() => {
         window.location.reload();
-      }, 3000);
+      }, 2000);
     });
-   }
-
+  }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
     // this.FirstName = localStorage.getItem('FirstName');
     // this.LastName = localStorage.getItem('LastName');
     // this.Email = localStorage.getItem('Email');
+    this.http.get<any>(this.appUrl + 'api/User/' + localStorage.getItem('UserId')).subscribe((data) => {
+      this.img = data.image;
+    });
   }
 
   isloggedIn(): boolean{
