@@ -62,7 +62,7 @@ namespace Learning_IT.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserCourse", new { id = userBadge.UserID }, userBadge);
+            return Ok();
         }
 
         // PUT api/<UserBadgesController>/5

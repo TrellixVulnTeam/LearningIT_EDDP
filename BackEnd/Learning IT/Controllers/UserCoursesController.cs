@@ -74,8 +74,32 @@ namespace Learning_IT.Controllers
 
         // POST: api/UserCourses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<UserCourse>> PostUserCourse(UserCourse userCourse)
+        //{
+        //    _context.UserCourses.Add(userCourse);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (UserCourseExists(userCourse.UserId))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return CreatedAtAction("GetUserCourse", new { id = userCourse.UserId }, userCourse);
+        //}
+
+
         [HttpPost]
-        public async Task<ActionResult<UserCourse>> PostUserCourse(UserCourse userCourse)
+        public async Task<ActionResult<UserCourse>> Post([FromBody] UserCourse userCourse)
         {
             _context.UserCourses.Add(userCourse);
             try
@@ -94,8 +118,9 @@ namespace Learning_IT.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserCourse", new { id = userCourse.UserId }, userCourse);
+            return Ok();
         }
+
 
         // DELETE: api/UserCourses/5
         [HttpDelete("{id}")]

@@ -1,3 +1,4 @@
+import { BadgeDetails } from './../utils/BadgeDetails';
 import { ExamDetalis } from './../utils/ExamDetails';
 import { HomeComponent } from './../home/home.component';
 import { HttpClient } from '@angular/common/http';
@@ -19,6 +20,7 @@ export class CourseComponent implements OnInit{
   public firstChapter: ChapterDetails;
   public course: CourseDetails;
   public exam: ExamDetalis;
+  public badge: BadgeDetails;
   appUrl: string = environment.appUrl;
   selectedChapter = '';
   currenttitle = localStorage.getItem('CourseTitle');
@@ -30,6 +32,7 @@ export class CourseComponent implements OnInit{
 
     this.http.get<CourseDetails>(this.appUrl + 'api/courses/' + this.curentId).subscribe((data) => {
       this.course = data;
+      localStorage.setItem('CourseExperience', String(this.course.experience));
     });
 
     this.http.get<ExamDetalis>(this.appUrl + 'api/exams/course/' + this.curentId).subscribe((data) => {
@@ -38,13 +41,18 @@ export class CourseComponent implements OnInit{
       console.log(this.exam);
     });
 
-
     this.http.get<ChapterDetails[]>(this.appUrl + 'api/chapters/title/' + this.currenttitle).subscribe((data) => {
       this.capitole = data;
       this.firstChapter = data[0];
     });
-    }
 
+    this.http.get<BadgeDetails>(this.appUrl + 'api/courses/badge/' + this.curentId).subscribe((data) => {
+      this.badge = data;
+      localStorage.setItem('BadgeId', String(this.badge.id));
+      console.log( String(this.badge.id));
+    });
+
+    }
 
   saveChaperId(ChaperId): void {
     localStorage.setItem('ChapterId', ChaperId);

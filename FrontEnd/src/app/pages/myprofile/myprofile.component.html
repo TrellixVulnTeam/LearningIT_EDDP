@@ -64,13 +64,13 @@
   </div>
   <div id="badges" class="collapse">
     <div class="row d-flex justify-content-center">
-      <div class="col-3 mr-3" *ngFor="let item of test">
+      <div class="col-3 mr-3" *ngFor="let badge of userBadgesList" >
         <div class="list-courses"> <br>
           <div class="icon">
             <img class="center" width="50" height="50" src="https://i.ibb.co/h21FxsJ/angular.png" alt="poza">
           </div>
           <p class="BADGE">BADGE</p>
-          <p class="p-partea-alba">TITLE</p>
+          <p class="p-partea-alba">{{badge.title}}</p>
           <p class="minute">16.01.2021</p>
         </div>
       </div>

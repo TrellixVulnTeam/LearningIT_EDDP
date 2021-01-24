@@ -169,6 +169,47 @@ namespace Learning_IT.Controllers
 
             return userId;
         }
+        [HttpGet("Badges/{UserId}")]
+        public ActionResult<List<Badge>> GetBadgesByUser(int UserId)
+        {
+            List<Badge> badgesList = new List<Badge>();
 
+            foreach (var userBadge in _context.UserBadges)
+            {
+                if ( userBadge.UserID == UserId)
+                {
+                    foreach( var badge in _context.Badges)
+                    {
+                        if (userBadge.BadgeId == badge.Id)
+                        {
+                            badgesList.Add(badge);
+                        }
+                    }
+                }
+            }
+
+            return badgesList;
+        }
+        [HttpGet("Courses/{UserId}")]
+        public bool GetCoursesByUser(int UserId)
+        {
+            List<Course> coursesList = new List<Course>();
+
+            foreach (var userCourse in _context.UserCourses)
+            {
+                if (userCourse.UserId == UserId)
+                {
+                    foreach (var course in _context.Courses)
+                    {
+                        if (userCourse.CourseId == course.Id)
+                        {
+                            coursesList.Add(course);
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }

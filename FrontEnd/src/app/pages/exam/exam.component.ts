@@ -1,9 +1,12 @@
-import { ExamDetalis } from './../utils/ExamDetails';
+import { UserCourse } from './../utils/UserCourse';
+import { UserBadge } from './../utils/UserBadge';
 import { Component, OnInit } from '@angular/core';
 import { QuestionDetails } from '../utils/QuestionDetails';
 import { SecretService } from 'src/app/services/secret.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { UserDetailPut } from 'src/app/services/UserDetailsPut';
+import { UserDetail } from 'src/app/services/UserDetails';
 
 @Component({
   selector: 'app-exam',
@@ -16,7 +19,16 @@ export class ExamComponent implements OnInit {
   appUrl: string = environment.appUrl;
   public numarRaspunsuriCorecte = 0;
   public mapAnswers = new Map();
-
+  public model: UserBadge;
+  public modeUserCourse : UserCourse;
+  myUserPut: UserDetailPut = {
+    Id: null,
+    IdentityId: null,
+    FirstName: null,
+    LastName: null,
+    Score: null,
+    Image: null
+  };
   constructor(private secretService: SecretService, private http: HttpClient) { }
 
   ngOnInit() {
@@ -29,6 +41,16 @@ export class ExamComponent implements OnInit {
       }
 
       console.log(this.mapAnswers);
+    });
+
+
+    this.http.get<UserDetail>(this.appUrl + 'api/User/' + localStorage.getItem('UserId')).subscribe((data) => {
+      this.myUserPut.Id = data.id;
+      this.myUserPut.IdentityId = data.identityId;
+      this.myUserPut.FirstName = data.firstName;
+      this.myUserPut.LastName = data.lastName;
+      this.myUserPut.Score = data.score;
+      this.myUserPut.Image = data.image;
     });
 
   }
@@ -101,6 +123,10 @@ export class ExamComponent implements OnInit {
     if (this.verificaToateRaspunsurile() === 1) {
       // Post de salvare Badge la user
       // Redirect catre castigat badge
+      this.salveazaBadgeUser();
+      this.salveazaCourseUser();
+      this.myUserPut.Score = this.myUserPut.Score + Number(localStorage.getItem('CourseExperience'));
+      this.http.put(this.appUrl + 'api/User/' + localStorage.getItem('UserId'), this.myUserPut).subscribe();
     }
     else {
       // redirect catre Home
@@ -108,5 +134,17 @@ export class ExamComponent implements OnInit {
 
   }
 
+  // tslint:disable-next-line:typedef
+  salveazaBadgeUser() {
+    this.model = new UserBadge((Number)(localStorage.getItem('UserId')), (Number)(localStorage.getItem('BadgeId')));
+    console.log(this.model);
+    return  this.http.post(this.appUrl + 'api/UserBadges/' , this.model).subscribe();
+  }
+
+  salveazaCourseUser() {
+    this.modeUserCourse = new UserCourse((Number)(localStorage.getItem('UserId')), (Number)(localStorage.getItem('CourseId')));
+    console.log(this.modeUserCourse);
+    return  this.http.post(this.appUrl + 'api/usercourses/' , this.modeUserCourse).subscribe();
+  }
 
 }

@@ -1,3 +1,5 @@
+import { BadgeDetails } from './../utils/BadgeDetails';
+import { UserBadge } from './../utils/UserBadge';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -44,6 +46,10 @@ export class MyprofileComponent implements OnInit {
     Image: null
   };
 
+  userBadgesList: BadgeDetails[] = [];
+
+
+
   constructor(
     private authUser: AuthService,
     private http: HttpClient,
@@ -65,6 +71,13 @@ export class MyprofileComponent implements OnInit {
       this.FirstName = data.firstName;
       this.LastName = data.lastName;
     });
+
+    this.http.get<BadgeDetails[]>(this.appUrl + 'api/User/Badges/' + this.userId).subscribe((data) => {
+      this.userBadgesList = data;
+      console.log(this.userBadgesList);
+    });
+
+
   }
 
   // tslint:disable-next-line: typedef

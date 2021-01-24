@@ -56,6 +56,23 @@ namespace Learning_IT.Controllers
             return courses;
         }
 
+        //GET: Badge dupa CourseId
+        [HttpGet("Badge/{CourseId}")]
+        public ActionResult<Badge> GetBadgeDupaCourse(int CourseId)
+        {   
+            Badge myBadge = new Badge();
+            foreach (var badge in _context.Badges)
+            {
+                if ( badge.CourseId == CourseId)
+                {
+                    myBadge = badge;
+                    break;
+                }
+
+            }
+            return myBadge;
+        }
+
         //GET: Cursuri dupa categorie
         [HttpGet("Categorie/{Categorie}")]
         public ActionResult<IEnumerable<Course>> GetCourseByCategorie(string Categorie)
