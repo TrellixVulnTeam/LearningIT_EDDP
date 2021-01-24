@@ -43,22 +43,34 @@ namespace Learning_IT.Controllers
 
         // GET api/<UserBadgesController>/Get all badges by user id
         [HttpGet("User/{id}")]
-        public async Task<ActionResult<UserBadge>> GetBadgesByUserId(int id)
+        public ActionResult<List<Badge>> GetBadgesByUserId(int id)
         {
-            var userBadge = await _context.UserBadges.FindAsync(id);
+            //var userBadge = await _context.UserBadges.FindAsync(id);
             List<UserBadge> userBadges = new List<UserBadge>();
-            foreach(var item in _context.UserBadges)
+            List<Badge> badgesList = new List<Badge>();
+            foreach (var item in _context.UserBadges)
             {
                 userBadges.Add(item);
             }
-            
+            List<int> badgeIds = userBadges.Where(x => x.UserID == id).Select(x => x.BadgeId).ToList();
 
-            if (userBadge == null)
+            foreach (var item1 in _context.Badges)
             {
-                return NotFound();
+                foreach (var item2 in badgeIds)
+                {
+                    if (item1.Id == item2)
+                    {
+                        badgesList.Add(item1);
+                    }
+                }
             }
 
-            return userBadge;
+            //if (userBadge == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return badgesList;
         }
 
         // POST api/<UserBadgesController>
