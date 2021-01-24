@@ -19,9 +19,11 @@ namespace Learning_IT.Models
         public string Content { get; set; }
         [Column(TypeName = "decimal(9,2)")]
         public Decimal Points { get; set; }
-        public int ChapterId { get; set; }
 
-        public Chapter Chapter { get; set; }
+
+        public int CourseId { get; set; }
+
+        public Course Course { get; set; }
 
         public virtual IList<QuestionExam> QuestionExams { get; set; }
 

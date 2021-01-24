@@ -24,10 +24,12 @@
       </div>
 
       <div class="row">
-        <h4 class="next">Next Chapter: </h4>
+        <h5 class="next">Previous Chapter: </h5>
+        <h5 style="margin-left: 750px;"  class="next">Next Chapter: </h5>
       </div>
       <div class="row">
-        <button (click)="switchId()" routerLinkActive="active" id="nextButton" type="button" class="btn btn-primary">Continue</button>
+        <button  (click)="switchIdBack()" routerLinkActive="active" id="nextButton" type="button" class="btn btn-primary">Previous</button>
+        <button style="margin-left: 600px;" (click)="switchId()" routerLinkActive="active" id="nextButton" type="button" class="btn btn-primary">Continue</button>
       </div>
     </div>
     </div>
