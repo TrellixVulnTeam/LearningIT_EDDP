@@ -135,6 +135,7 @@ export class ExamComponent implements OnInit {
     else {
       this.apare = false;
     }
+  }
 
   // tslint:disable-next-line:typedef
   salveazaBadgeUser() {
