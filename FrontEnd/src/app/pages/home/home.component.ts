@@ -93,4 +93,8 @@ export class HomeComponent implements OnInit {
       this.level = false;
     }
   }
+
+  sus(): void{
+    window.scroll(0, 0);
+  }
 }

@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 export class ArticlesComponent implements OnInit {
   appUrl: string = environment.appUrl;
   articles: any;
+  userScore: any;
+  adauga = false;
   userList = [{}];
 
   constructor(
@@ -24,16 +26,10 @@ export class ArticlesComponent implements OnInit {
     this.http.get<any>(this.appUrl + 'api/articles').subscribe((data) => {
       this.articles = data;
     });
-  }
-
-  lista(): void{
-    // tslint:disable-next-line: prefer-const
-    for (let item of this.articles){
-      this.http.get<any>(this.appUrl + 'api/user/' + Number(item.userId)).subscribe((data) => {
-        this.userList.push(data.firstName + ' ' + data.lastName);
-      });
-    }
-    console.log(this.userList);
+    this.http.get<any>(this.appUrl + 'api/user/' + localStorage.getItem('UserId')).subscribe((data) => {
+      this.userScore = data.score;
+    });
+    this.verificare1();
   }
 
   onclick(clickedid): void{
@@ -41,13 +37,22 @@ export class ArticlesComponent implements OnInit {
     return clickedid;
   }
 
-  verificare(user): void{
-    if (user === Number(localStorage.getItem('UserId'))){
+  verificare1(): boolean{
+    if (this.userScore >= 3000){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  verificare2(user): void{
+    if (user === Number(localStorage.getItem('UserId')) || this.userScore === 999999){
       this.router.navigate(['/edit-article']);
     }
     else {
       this.toastr.error('Access denied!');
-      // this.lista();
     }
+
   }
 }

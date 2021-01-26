@@ -42,7 +42,7 @@ export class ChapterComponent implements OnInit {
   }
 
   switchId(): void{
-
+    window.scroll(0, 0);
     if (Number(localStorage.getItem('ChapterId')) === this.chapters[this.chapters.length - 1].id) {
       this.router.navigateByUrl('/exams/' + localStorage.getItem('ExamId'));
     }
@@ -62,7 +62,7 @@ export class ChapterComponent implements OnInit {
 
 
   switchIdBack(): void {
-
+    window.scroll(0, 0);
     if (Number(localStorage.getItem('ChapterId')) > this.chapters[0].id) {
       for (let i = 0; i < this.chapters.length; i++){
         if (this.chapters[i].id === Number(localStorage.getItem('ChapterId'))) {

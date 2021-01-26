@@ -15,6 +15,7 @@ import { UserDetail } from 'src/app/services/UserDetails';
 })
 export class ExamComponent implements OnInit {
 
+  apare = false;
   public questions: QuestionDetails[];
   appUrl: string = environment.appUrl;
   public numarRaspunsuriCorecte = 0;
@@ -31,7 +32,7 @@ export class ExamComponent implements OnInit {
   };
   constructor(private secretService: SecretService, private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.http.get<QuestionDetails[]>(this.appUrl + 'api/exams/questionsExam/' + localStorage.getItem('ExamId')).subscribe((data) => {
       this.questions = data;
 
@@ -57,6 +58,7 @@ export class ExamComponent implements OnInit {
 
   verificaRaspunsCorect(id, raspuns): void {
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.questions.length; i++){
       if (this.questions[i].id === id) {
           if (this.questions[i].raspunsCorect === 1 ) {
@@ -109,9 +111,10 @@ export class ExamComponent implements OnInit {
   }
 
   verificaToateRaspunsurile(): any {
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.questions.length; i++)
     {
-      if(this.mapAnswers.get (this.questions[i].id) !== 0) {
+      if (this.mapAnswers.get (this.questions[i].id) !== 0) {
         return 0;
       }
     }
@@ -127,12 +130,11 @@ export class ExamComponent implements OnInit {
       this.salveazaCourseUser();
       this.myUserPut.Score = this.myUserPut.Score + Number(localStorage.getItem('CourseExperience'));
       this.http.put(this.appUrl + 'api/User/' + localStorage.getItem('UserId'), this.myUserPut).subscribe();
+      this.apare = true;
     }
     else {
-      // redirect catre Home
+      this.apare = false;
     }
-
-  }
 
   // tslint:disable-next-line:typedef
   salveazaBadgeUser() {

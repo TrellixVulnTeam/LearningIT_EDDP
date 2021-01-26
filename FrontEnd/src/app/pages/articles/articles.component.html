@@ -1,4 +1,4 @@
-<div class="container pt-3 pl-5">
+<div class="container pt-3 pl-5" *ngIf="verificare1()">
   <button type="button" class="btn btn-primary" routerLink="/add-article">Add Article</button>
 </div>
 <div class="container">
@@ -20,7 +20,7 @@
               <input routerLink="/article" (click)="onclick(item.id)" type="radio" name="options" id="option1"> View
             </label>
             <label class="btn btn-outline-secondary">
-              <input (click)="onclick(item.id)" (click)="verificare(item.userId)" type="radio" name="options" id="option2"> Edit
+              <input (click)="onclick(item.id)" (click)="verificare2(item.userId)" type="radio" name="options" id="option2"> Edit
             </label>
           </div>
         </div>

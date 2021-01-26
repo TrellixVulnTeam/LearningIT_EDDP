@@ -25,6 +25,7 @@ export class UsersRankListComponent implements OnInit {
 
       this.http.get<UserRankDetail[]>(this.appUrl + 'api/user/LeaderboardTop').subscribe((data) => {
         this.usersRankDetails = data;
+        console.log(data);
       });
 
   }

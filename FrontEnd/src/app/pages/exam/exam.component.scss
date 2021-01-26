@@ -17,7 +17,8 @@ body {
     padding: 20px;
     font-family: 'Montserrat', sans-serif;
     max-width: 700px;
-    box-shadow: 2px 2px 2.5px 2px #afaeae;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .container>p {
@@ -104,3 +105,53 @@ body {
         word-spacing: 2px
     }
 }
+
+
+.experience {
+  transform: skew(0deg);
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+}
+
+.test1{
+  float: left;
+  border-right: 15px solid #128712;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+.test2{
+  float: left;
+  width: 100px;
+  height: 30px;
+  background-color: #128712;
+}
+.test3{
+  float: left;
+  border-left: 15px solid #128712;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.poza1{
+  margin-left: 128px;
+  width: 200px;
+}
+.poza2{
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+.hexagon{
+  margin-top: 150px;
+  position: absolute;
+  margin-left: 180px;
+  z-index: 1;
+}
+
+.scris{
+  margin-left: auto;
+  margin-right: auto;
+}
+

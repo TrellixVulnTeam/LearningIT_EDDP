@@ -10,14 +10,15 @@
     <div class="col-9 mt-5">
       <h1>{{this.myUserPut.FirstName}} {{this.myUserPut.LastName}}</h1>
       <h6>{{Email}}</h6>
+
       <div class="container">
         <div class="row">
           <div class="col-xs-3">
-            <p>Level: 1</p>
+            <p>Level: {{level}}</p>
           </div>
           <div class="col-6 pt-1">
             <div class="progress" style="background-color: #e3e3e3">
-              <div class="progress-bar" role="progressbar" [ngStyle]="{'width': xp+'%', 'aria-valuenow':xp, 'aria-valuemin':'0', 'aria-valuemax':'100', 'background-color': 'green'}">{{xp}}%</div>
+              <div class="progress-bar" role="progressbar" [ngStyle]="{'width': procent+'%', 'aria-valuenow':procent, 'aria-valuemin':'0', 'aria-valuemax':'100', 'background-color': 'green'}">{{procent}} %</div>
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@
 <div class="container down" [ngStyle]="{'height': 'auto'}">
   <div class="row" data-toggle="collapse" data-target="#settings" >
     <div class="col-xl-11">
-      <h4>Settings</h4>
+      <h4 class="pl-4">Settings</h4>
     </div>
     <div class="col-1 pt-1">
       <img src="https://i.ibb.co/LJmFTqP/arrow-down-sign-to-navigate.png" width="20px" height="20px">
@@ -38,7 +39,7 @@
     <div class="scris">
       <div class="pt-2 pb-2">
         <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
-        <button style="float: right;" type="submit" class="btn btn-primary" (click)="onSubmit1()" (click)="onSubmit2()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
+        <button style="float: right;" type="submit" class="btn btn-primary" (click)="onSubmit1()">Salveaza poza<i class="fas fa-sign-in-alt"></i></button>
       </div>
       <form #f="ngForm" (ngSubmit)="update(f)">
         <label for="firstName">FirstName</label>
@@ -54,15 +55,15 @@
 </div>
 
 <div class="container down" [ngStyle]="{'height': 'auto'}">
-  <div class="row" data-toggle="collapse" data-target="#badges" >
+  <div class="row">
     <div class="col-xl-11">
-      <h4>Badges</h4>
+      <h4 class="pl-4">Badges</h4>
     </div>
-    <div class="col-1 pt-1">
+    <!-- <div class="col-1 pt-1">
       <img src="https://i.ibb.co/LJmFTqP/arrow-down-sign-to-navigate.png" width="20px" height="20px">
-    </div>
+    </div> -->
   </div>
-  <div id="badges" class="collapse">
+  <div id="badges" class="">
     <div class="row d-flex justify-content-center">
       <div class="col-3 mr-3" *ngFor="let badge of userBadgesList" >
         <div class="list-courses"> <br>
