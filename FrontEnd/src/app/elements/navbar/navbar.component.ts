@@ -28,17 +28,14 @@ export class NavbarComponent implements OnInit {
     private http: HttpClient,
     ) {
     this.clickEventsubscription = this.sharedService.getClickEvent().subscribe( () => {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      this.http.get<any>(this.appUrl + 'api/User/' + localStorage.getItem('UserId')).subscribe((data) => {
+        this.img = data.image;
+      });
     });
   }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    // this.FirstName = localStorage.getItem('FirstName');
-    // this.LastName = localStorage.getItem('LastName');
-    // this.Email = localStorage.getItem('Email');
     this.http.get<any>(this.appUrl + 'api/User/' + localStorage.getItem('UserId')).subscribe((data) => {
       this.img = data.image;
     });
