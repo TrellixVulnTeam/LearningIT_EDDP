@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Learning_IT.Migrations
 {
-    public partial class server : Migration
+    public partial class Migrare : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -67,7 +67,11 @@ namespace Learning_IT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(64)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(256)", nullable: true),
-                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Experience = table.Column<int>(type: "int", nullable: true),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Level = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Time = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,7 +84,12 @@ namespace Learning_IT.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(256)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(256)", nullable: false),
+                    RaspunsA = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RaspunsB = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RaspunsC = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RaspunsD = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RaspunsCorect = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,7 +119,8 @@ namespace Learning_IT.Migrations
                     IdentityId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(32)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(32)", nullable: true),
-                    Score = table.Column<decimal>(type: "decimal(9,2)", nullable: false)
+                    Score = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -224,6 +234,27 @@ namespace Learning_IT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Badges",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(64)", nullable: true),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Badges", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Badges_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Chapters",
                 columns: table => new
                 {
@@ -231,6 +262,8 @@ namespace Learning_IT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(64)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(256)", nullable: true),
+                    Time = table.Column<int>(type: "int", nullable: true),
+                    FlagFinished = table.Column<int>(type: "int", nullable: true),
                     CourseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -238,6 +271,28 @@ namespace Learning_IT.Migrations
                     table.PrimaryKey("PK_Chapters", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Chapters_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Exams",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "varchar(64)", nullable: false),
+                    Content = table.Column<string>(type: "varchar(256)", nullable: false),
+                    Points = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
+                    CourseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exams", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Exams_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
@@ -274,9 +329,10 @@ namespace Learning_IT.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(48)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(256)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -338,23 +394,25 @@ namespace Learning_IT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exams",
+                name: "UserBadges",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "varchar(64)", nullable: false),
-                    Content = table.Column<string>(type: "varchar(256)", nullable: false),
-                    Points = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
-                    ChapterId = table.Column<int>(type: "int", nullable: false)
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    BadgeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Exams", x => x.Id);
+                    table.PrimaryKey("PK_UserBadges", x => new { x.BadgeId, x.UserID });
                     table.ForeignKey(
-                        name: "FK_Exams_Chapters_ChapterId",
-                        column: x => x.ChapterId,
-                        principalTable: "Chapters",
+                        name: "FK_UserBadges_Badges_BadgeId",
+                        column: x => x.BadgeId,
+                        principalTable: "Badges",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserBadges_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -433,20 +491,31 @@ namespace Learning_IT.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Badges_CourseId",
+                table: "Badges",
+                column: "CourseId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Chapters_CourseId",
                 table: "Chapters",
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exams_ChapterId",
+                name: "IX_Exams_CourseId",
                 table: "Exams",
-                column: "ChapterId",
+                column: "CourseId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_QuestionExams_QuestionId",
                 table: "QuestionExams",
                 column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserBadges_UserID",
+                table: "UserBadges",
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserCourses_CourseId",
@@ -483,7 +552,13 @@ namespace Learning_IT.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Chapters");
+
+            migrationBuilder.DropTable(
                 name: "QuestionExams");
+
+            migrationBuilder.DropTable(
+                name: "UserBadges");
 
             migrationBuilder.DropTable(
                 name: "UserCourses");
@@ -507,13 +582,13 @@ namespace Learning_IT.Migrations
                 name: "Questions");
 
             migrationBuilder.DropTable(
+                name: "Badges");
+
+            migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Chapters");
 
             migrationBuilder.DropTable(
                 name: "Courses");
