@@ -155,7 +155,12 @@ export class MyprofileComponent implements OnInit {
   }
 
   calculareNivel(): void{
-    if (this.score < 1000){
+    if(this.score <0){
+      this.level=0;
+      this.procent=100;
+      this.afisare='Admin'
+    }
+    if (this.score >= 0 && this.score < 1000){
       this.level = 1;
       this.procent = this.score / 10;
       this.afisare = String(this.score) + ' / 1000 xp';

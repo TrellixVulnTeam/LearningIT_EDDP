@@ -45,7 +45,8 @@ input{
 }
 
 .icon{
-  margin-left: 35px;
+  margin-left: 15px;
+  margin-top: -10px;
   background-color: #5493cf;
   border-radius: 50%;
   width: 70px;
@@ -62,7 +63,7 @@ input{
 }
 
 .BADGE{
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 35px;
   font-size: 13px;
   letter-spacing: 4px;
@@ -70,7 +71,8 @@ input{
 }
 .p-partea-alba{
   margin-left: 35px;
-  line-height: 0.7;
+  line-height: 1;
+  height: 45px;
 }
 
 .minute{

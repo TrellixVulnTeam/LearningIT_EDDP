@@ -38,7 +38,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   verificare1(): boolean{
-    if (this.userScore >= 3000){
+    if (this.userScore >= 10000 || this.userScore < 0){
       return true;
     }
     else{
@@ -47,7 +47,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   verificare2(user): void{
-    if (user === Number(localStorage.getItem('UserId')) || this.userScore === 999999){
+    if (user === Number(localStorage.getItem('UserId')) || this.userScore < 0){
       this.router.navigate(['/edit-article']);
     }
     else {
