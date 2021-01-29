@@ -1,3 +1,4 @@
+import { Authguard2Service as AuthGuard2} from './services/authguard2.service';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ExamComponent } from './pages/exam/exam.component';
 import { AuthguardService as AuthGuard } from './services/authguard.service';
@@ -19,9 +20,9 @@ import { CanActivate } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'welcome', component: WelcomeComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
+  { path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard2]},
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard2]},
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard2]},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'article', component: ArticleComponent, canActivate: [AuthGuard]},
   { path: 'add-article', component: AddarticleComponent, canActivate: [AuthGuard] },

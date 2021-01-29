@@ -40,6 +40,11 @@ export class AuthService {
     return !this.helper.isTokenExpired(message);
   }
 
+  public loggedOut(): boolean{
+    const message = localStorage.getItem('message');
+    return this.helper.isTokenExpired(message);
+  }
+
   // tslint:disable-next-line: typedef
   logout() {
     localStorage.clear();
