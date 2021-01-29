@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Learning_IT.Services;
+using Wkhtmltopdf.NetCore;
 
 namespace Learning_IT
 {
@@ -38,6 +39,7 @@ namespace Learning_IT
              options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddWkhtmltopdf();
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {

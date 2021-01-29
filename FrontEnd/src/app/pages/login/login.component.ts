@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.authService.login(f.value).subscribe(loginObserver);
-    this.sharedService.sendClickEvent();
+    //this.sharedService.sendClickEvent();
   }
 
 }

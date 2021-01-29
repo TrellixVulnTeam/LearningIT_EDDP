@@ -15,7 +15,38 @@ import { HomeComponent } from '../home/home.component';
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent implements OnInit {
-  constructor() { }
-  ngOnInit(): void{  }
+
+  FirstName: string;
+  LastName: string;
+  userId = localStorage.getItem('UserId');
+  appUrl: string = environment.appUrl;
+  myUserPut: UserDetailPut = {
+    Id: null,
+    IdentityId: null,
+    FirstName: null,
+    LastName: null,
+    Score: null,
+    Image: null
+  };
+
+
+  constructor(private authUser: AuthService, private http: HttpClient) { }
+  ngOnInit(): void{
+    this.http.get<UserDetail>(this.appUrl + 'api/User/' + this.userId).subscribe((data) => {
+      this.myUserPut.Id = data.id;
+      this.myUserPut.IdentityId = data.identityId;
+      this.myUserPut.FirstName = data.firstName;
+      this.myUserPut.LastName = data.lastName;
+      this.myUserPut.Score = data.score;
+      this.myUserPut.Image = data.image;
+      this.FirstName = data.firstName;
+      this.LastName = data.lastName;
+    });
+    }
+
+  certificat(){
+
+    return this.http.post(this.appUrl + 'api/certificat/', this.myUserPut).subscribe();
+  }
 }
 

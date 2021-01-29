@@ -6,6 +6,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Rotativa\Linux\libwkhtmltox.so" />
+    <None Remove="Rotativa\Linux\wkhtmltopdf" />
+    <None Remove="Rotativa\Mac\libwkhtmltox.dylib" />
+    <None Remove="Rotativa\Mac\wkhtmltopdf" />
+    <None Remove="Rotativa\Windows\wkhtmltopdf.exe" />
+    <None Remove="Rotativa\Windows\wkhtmltox.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Rotativa\Linux\libwkhtmltox.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rotativa\Linux\wkhtmltopdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rotativa\Mac\libwkhtmltox.dylib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rotativa\Mac\wkhtmltopdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rotativa\Windows\wkhtmltopdf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Rotativa\Windows\wkhtmltox.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.2" />
     <PackageReference Include="Json.Net" Version="1.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
@@ -23,10 +53,16 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Wkhtmltopdf.NetCore" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetIdentity.Shared\AspNetIdentity.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\NewFolder\" />
+    <Folder Include="Photo\" />
   </ItemGroup>
 
 
