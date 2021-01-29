@@ -40,6 +40,25 @@ namespace Learning_IT.Controllers
 
             return badge;
         }
+        // GET api/<BadgesController>/Get badge by course id
+        [HttpGet("Course/{id}")]
+        public ActionResult<Badge> GetBadgeByCourseId(int id)
+        {
+            List<Badge> badgesList = new List<Badge>();
+            foreach (var item in _context.Badges)
+            {
+                badgesList.Add(item);
+            }
+
+            var badge = badgesList.Where(x => x.CourseId == id).FirstOrDefault();
+
+            if (badge == null)
+            {
+                return NotFound();
+            }
+
+            return badge;
+        }
 
         // POST api/<BadgesController>
         [HttpPost]
