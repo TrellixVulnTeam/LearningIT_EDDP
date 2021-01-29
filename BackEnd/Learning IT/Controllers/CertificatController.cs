@@ -16,29 +16,38 @@ namespace Learning_IT.Controllers
     public class CertificatController : ControllerBase
     {
         private IGeneratePdf _generatePdf;
+        private MyContext _context;
 
-        public CertificatController(IGeneratePdf generatePdf)
+        public CertificatController(IGeneratePdf generatePdf, MyContext context)
         {
             _generatePdf = generatePdf;
+            _context = context;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{numeUser}/{id}")]
+        public IActionResult Get(string numeUser, int id)
         {
+            string title = "";
+            string image = "";
+            foreach(var item in _context.Badges)
+            {
+                if(item.Id == id)
+                {
+                    title = item.Title;
+                    image = item.ImageURL;
+                }
+            }
             var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "Photo", "cooltext375106303841615.png");
-            CertificatModel model = new CertificatModel();
-            model.NumeUser = "Fratila Costin";
-            model.NumeCurs = "Python";
-            model.ImageCurs = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png";
+           
             var html = new StringBuilder();
             html.Append("<html><body background='https://st3.depositphotos.com/4041239/12552/v/950/depositphotos_125524694-stock-illustration-decorative-border-and-golden-background.jpg' style='background-size:cover; background-repeat:none;'>");
-            html.AppendLine("<h1 style='font-size: 50px; padding-left: 250px; padding-top: 250px;'><b><i>Certificate of Training</i></b></h1>");
-            html.AppendFormat("<img style='padding-left: 325px;' src='{0}'/>", imagePath);
-            html.AppendLine("<h1 style='font-size: 20px; padding-left: 380px; padding-top: 50px;'><b><i>This is to certify that</i></b></h1>");
-            html.AppendLine("<h1 style='font-size: 60px; padding-left: 300px; padding-top: 50px;'><i>"+ model.NumeUser +"</i></h1>");
-            html.AppendLine("<h1 style='font-size: 20px; padding-left: 320px; padding-top: 50px;'><b><i>has successfully completed training in</i></b></h1>");
-            html.AppendLine("<h1 style='font-size: 35px; padding-left: 325px; padding-top: 50px;'><b><i>Cursul de "+ model.NumeCurs +"</i></b></h1>");
-            html.Append("<img style='padding-left: 420px; padding-top: 50px; width: 100px; height: 100px;' src='" + model.ImageCurs +"'/>");
+            html.AppendLine("<h1 style='text-align: center; font-size: 50px; padding-top: 200px;'><b><i>Certificate of Training</i></b></h1>");
+            html.AppendFormat("<img style='padding-left: 50%; margin-left: -130px;' src='{0}'/>", imagePath);
+            html.AppendLine("<h1 style='text-align: center; font-size: 25px; padding-top: 50px;'><b><i>This is to certify that</i></b></h1>");
+            html.AppendLine("<h1 style='text-align: center; font-size: 60px; padding-top: 30px;'><i>"+ numeUser +"</i></h1>");
+            html.AppendLine("<h1 style='text-align: center; font-size: 25px; padding-top: 30px;'><b><i>has successfully completed training in</i></b></h1>");
+            html.AppendLine("<div style='position: absolute; left: 50%; margin-left: -350px;'><h1 style='font-size: 35px; width: 700px; text-align: center; padding-top: 50px;'><b><i>"+ title +" Course</i></b></h1></div>");
+            html.Append("<div style='padding-top: 250px;padding-left: 50%; margin-left: -66px'> <img width='133' height='134' src='" + image +"'/></div>");
 
             html.Append("</body></html>");
             var pdf = _generatePdf.GetPDF(html.ToString());

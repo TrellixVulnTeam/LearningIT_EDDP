@@ -1,3 +1,4 @@
+import { CertificatModel } from './../utils/CertificatModel';
 import { BadgeDetails } from './../utils/BadgeDetails';
 import { UserBadge } from './../utils/UserBadge';
 import { HttpClient } from '@angular/common/http';
@@ -62,7 +63,13 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<UserDetail>(this.appUrl + 'api/User/' + this.userId).subscribe((data) => {
-      this.myimage2 = data.image;
+      if (data.image !== null){
+        this.myimage2 = data.image;
+      }
+      else
+      {
+        this.myimage2 = 'https://i.ibb.co/QrrWFH8/user.png';
+      }
     });
     this.http.get<UserDetail>(this.appUrl + 'api/User/' + this.userId).subscribe((data) => {
       this.myUserPut.Id = data.id;
@@ -173,5 +180,10 @@ export class MyprofileComponent implements OnInit {
       this.procent = (this.score - 20000) / ((50000 - 20000) / 100);
       this.afisare = String(this.score) + ' / 50000 xp';
     }
+  }
+
+  certificat(id): void{
+
+    window.open(this.appUrl + 'api/certificat/' + this.FirstName + this.LastName + '/' + id, '_blank');
   }
 }

@@ -37,8 +37,15 @@ export class NavbarComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.http.get<any>(this.appUrl + 'api/User/' + localStorage.getItem('UserId')).subscribe((data) => {
-      this.img = data.image;
+      if (data.image !== null){
+        this.img = data.image;
+      }
+      else
+      {
+        this.img = 'https://i.ibb.co/QrrWFH8/user.png';
+      }
     });
+
   }
 
   isloggedIn(): boolean{

@@ -16,7 +16,7 @@
           </div>
           <div class="col-3">
             <div class="pt-3 pl-5">
-              <img data-toggle="modal" data-target="#exampleModal" width="70" height="70" src="https://i.ibb.co/gWx6Rc0/certificate.png" alt="">
+              <img data-toggle="modal" data-target="#exampleModal" width="70" height="70" src="https://cdns.iconmonstr.com/wp-content/assets/preview/2014/240/iconmonstr-certificate-6.png" alt="">
             </div>
             <!-- <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Badge<i class="fas fa-sign-in-alt"></i></button> -->
 
@@ -87,7 +87,7 @@
                 <img class="center" width="50" height="50" src="{{badge.imageURL}}" alt="poza">
               </div>
               <p class="BADGE">BADGE</p>
-              <p class="p-partea-alba">{{badge.title}}</p>
+              <p (click)="certificat(badge.id)" class="p-partea-alba">{{badge.title}}</p>
               <p class="minute">16.01.2021</p>
             </div>
           </div>
@@ -96,3 +96,4 @@
     </div>
   </div>
 </div>
+
