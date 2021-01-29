@@ -29,7 +29,7 @@ export class MyprofileComponent implements OnInit {
   test = TEST;
   level = 1;
   procent: number;
-  // score = 11000;
+  afisare: string;
   score: number;
   FirstName: string;
   LastName: string;
@@ -133,11 +133,6 @@ export class MyprofileComponent implements OnInit {
   onSubmit1(): void{
     this.http.put(this.appUrl + 'api/User/' + this.userId, this.myUserPut).subscribe();
   }
-  onSubmit2(): void{
-    this.http.get<UserDetail>(this.appUrl + 'api/User/' + this.userId).subscribe((data) => {
-      this.myimage2 = data.image;
-    });
-  }
 
   update(f: NgForm): void{
     if (f.value.firstName !== null){
@@ -156,18 +151,27 @@ export class MyprofileComponent implements OnInit {
     if (this.score < 1000){
       this.level = 1;
       this.procent = this.score / 10;
+      this.afisare = String(this.score) + ' / 1000 xp';
     }
     if (this.score >= 1000 && this.score < 3000){
       this.level = 2;
       this.procent = (this.score - 1000) / ((3000 - 1000) / 100);
+      this.afisare = String(this.score) + ' / 3000 xp';
     }
     if (this.score >= 3000 && this.score < 10000){
       this.level = 3;
       this.procent = (this.score - 3000) / ((10000 - 3000) / 100);
+      this.afisare = String(this.score) + ' / 10000 xp';
     }
     if (this.score >= 10000 && this.score < 20000){
       this.level = 4;
       this.procent = (this.score - 10000) / ((20000 - 10000) / 100);
+      this.afisare = String(this.score) + ' / 20000 xp';
+    }
+    if (this.score >= 20000 && this.score < 50000){
+      this.level = 5;
+      this.procent = (this.score - 20000) / ((50000 - 20000) / 100);
+      this.afisare = String(this.score) + ' / 50000 xp';
     }
   }
 }

@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit {
     {t: 'Dynamics 365'},
     {t: 'GitHub'},
     {t: 'Internet Explorer'},
-    {t: 'Microsoft 365'},
-    {t: 'Microsoft Edge'},
     {t: 'Microsoft Endpoint Manager'},
     {t: 'Microsoft Graph'},
     {t: 'Office'},

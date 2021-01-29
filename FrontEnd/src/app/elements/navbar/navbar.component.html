@@ -42,9 +42,8 @@
           </a>
 				<div class="dropdown-menu">
 					<a routerLink="/my-profile" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
-					<a href="#" class="dropdown-item"><i class="fa fa-graduation-cap"></i> My Certificates</a>
 					<div class="divider dropdown-divider"></div>
-					<a href="/login" (click)="authService.logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+					<a routerLink="/welcome" (click)="authService.logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
 				</div>
 			</div>
 		</div>

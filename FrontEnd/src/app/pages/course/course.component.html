@@ -14,7 +14,7 @@
           <div class="row">
             <div class="title">
               <p>{{course?.title}}</p>
-              <p class="subtitle"> {{course?.time}} min - Module - 7 Units</p>
+              <p class="subtitle"> {{course?.time}} min</p>
             </div>
           </div>
         </div>
@@ -26,13 +26,8 @@
           <div class="test3"> </div>
         </div>
       </div>
-      <div class="tags row">
-        <div class="tagrectangle col-xs-2">
-          <h6>{{course?.level}}</h6>
-        </div>
-        <div class="tagrectangle col-xs-2">
-          <h6>{{course?.category}}</h6>
-        </div>
+      <div>
+        <p class="tag"><mark>{{course?.category}}</mark> &nbsp; <mark>{{course?.level}}</mark></p>
       </div>
       <div class="textContent row">
         <div class="col-xs-9">

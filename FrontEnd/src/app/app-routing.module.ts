@@ -1,3 +1,4 @@
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ExamComponent } from './pages/exam/exam.component';
 import { AuthguardService as AuthGuard } from './services/authguard.service';
 import { EditarticleComponent } from './pages/editarticle/editarticle.component';
@@ -18,6 +19,7 @@ import { CanActivate } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'welcome', component: WelcomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},

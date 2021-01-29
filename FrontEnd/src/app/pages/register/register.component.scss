@@ -66,8 +66,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #5493cf;
-	background-color: #5493cf;
+	border: 1px solid #0078d4;
+	background-color: #0078d4;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -110,7 +110,11 @@ input {
 }
 
 .container {
-  background-image: url("https://i.ibb.co/2N2133s/84280352-social-network-people-connecting-all-over-the-world-social-media-network-growth-background.jpg");
+  background: #0078d4;
+	background: linear-gradient(to right, #0e8aff, #0078d4);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
   margin-top: 50px;
   margin-bottom: 50px;
 	background-color: #fff;
@@ -120,7 +124,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 505px;
 }
 
 .form-container {

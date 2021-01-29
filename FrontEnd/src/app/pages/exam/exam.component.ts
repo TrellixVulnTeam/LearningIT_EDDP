@@ -21,7 +21,7 @@ export class ExamComponent implements OnInit {
   public numarRaspunsuriCorecte = 0;
   public mapAnswers = new Map();
   public model: UserBadge;
-  public modeUserCourse : UserCourse;
+  public modeUserCourse: UserCourse;
   myUserPut: UserDetailPut = {
     Id: null,
     IdentityId: null,
@@ -144,6 +144,7 @@ export class ExamComponent implements OnInit {
     return  this.http.post(this.appUrl + 'api/UserBadges/' , this.model).subscribe();
   }
 
+  // tslint:disable-next-line: typedef
   salveazaCourseUser() {
     this.modeUserCourse = new UserCourse((Number)(localStorage.getItem('UserId')), (Number)(localStorage.getItem('CourseId')));
     console.log(this.modeUserCourse);

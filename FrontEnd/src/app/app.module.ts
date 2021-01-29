@@ -1,3 +1,4 @@
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { EditarticleComponent } from './pages/editarticle/editarticle.component';
 import { AddarticleComponent } from './pages/addarticle/addarticle.component';
 import { MyprofileComponent } from './pages/myprofile/myprofile.component';
@@ -47,7 +48,8 @@ import { ExamComponent } from './pages/exam/exam.component';
     ArticlesComponent,
     MyprofileComponent,
     AddarticleComponent,
-    EditarticleComponent
+    EditarticleComponent,
+    WelcomeComponent
 
    ],
   imports: [

@@ -6,6 +6,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 900px;
   height: 100%;
+  background-color: white;
 }
 
 .icon {
@@ -38,6 +39,7 @@
 }
 
 .title {
+  width: 700px;
   margin-left: 35px;
   margin-top: 55px;
   font-size: 35px;
@@ -78,8 +80,9 @@
 }
 
 .hexagon{
+  position: absolute;
   margin-top: 20px;
-  margin-left: 500px;
+  margin-left: 750px;
 }
 
 .tags {
@@ -104,6 +107,7 @@ margin-left: 125px;
 .textCourse {
   margin-top: 15px;
   margin-left: 155px;
+  width: 700px;
 }
 
 .start {
@@ -125,4 +129,16 @@ margin-left: 125px;
 .list-group-item {
   margin-top: 15px;
   box-shadow: 1px 1px 1.5px 1px #bebebe;
+}
+
+.tag{
+
+  color: rgb(32, 32, 32);
+  margin-left: 138px;
+  // background-color: #e3e3e3;
+}
+
+mark {
+  font-size: 12px;
+  background-color: #e3e3e3;
 }
