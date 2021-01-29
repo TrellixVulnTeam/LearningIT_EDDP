@@ -2,16 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\BackEnd",
-    "\\BackEnd\\Learning IT",
-    "\\BackEnd\\Learning IT\\Data",
-    "\\BackEnd\\Learning IT\\Properties",
-    "\\BackEnd\\Learning IT\\Repositories",
-    "\\BackEnd\\Learning IT\\Utils",
+    "\\FrontEnd",
     "\\FrontEnd\\src",
     "\\FrontEnd\\src\\app",
     "\\FrontEnd\\src\\app\\pages",
     "\\FrontEnd\\src\\app\\pages\\home"
   ],
-  "SelectedNode": "\\BackEnd\\Learning IT.sln",
+  "SelectedNode": "\\FrontEnd\\tsconfig.app.json",
   "PreviewInSolutionExplorer": false
 }
