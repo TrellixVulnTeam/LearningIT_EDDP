@@ -1,3 +1,4 @@
+import { CertificatModel } from './../utils/CertificatModel';
 import { BadgeDetails } from './../utils/BadgeDetails';
 import { UserBadge } from './../utils/UserBadge';
 import { HttpClient } from '@angular/common/http';
@@ -173,5 +174,15 @@ export class MyprofileComponent implements OnInit {
       this.procent = (this.score - 20000) / ((50000 - 20000) / 100);
       this.afisare = String(this.score) + ' / 50000 xp';
     }
+  }
+
+  certificat(id): void{
+
+
+    // this.http.get<any>(this.appUrl + 'api/certificat/' + this.FirstName + this.LastName + '/' + id).subscribe((data) => {
+    //   // this.userBadgesList = data;
+    //   // console.log(this.userBadgesList);
+    // });
+    window.open(this.appUrl + 'api/certificat/' + this.FirstName + this.LastName + '/' + id, "_blank");
   }
 }
