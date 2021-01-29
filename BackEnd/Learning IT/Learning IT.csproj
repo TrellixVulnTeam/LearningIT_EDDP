@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Learning_IT</RootNamespace>
+    <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
 
   <ItemGroup>
