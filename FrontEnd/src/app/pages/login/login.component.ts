@@ -14,6 +14,7 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  eroare = false;
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
@@ -32,9 +33,11 @@ export class LoginComponent implements OnInit {
         // this.toastr.success('Welcome back ' + localStorage.getItem('FirstName') + ' ' + localStorage.getItem('LastName'));
         this.toastr.success('Welcome back ' + this.authService.FirstName + ' ' + this.authService.LastName);
         this.router.navigate(['/home']);
+        this.eroare = false;
       },
       error: (err) => {
-        this.toastr.error('Fail');
+        this.toastr.error('Incorrect email or password!');
+        this.eroare = true;
       },
     };
 

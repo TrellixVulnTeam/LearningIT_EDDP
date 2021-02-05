@@ -155,10 +155,10 @@ export class MyprofileComponent implements OnInit {
   }
 
   calculareNivel(): void{
-    if(this.score <0){
-      this.level=0;
-      this.procent=100;
-      this.afisare='Admin'
+    if (this.score < 0){
+      this.level = 0;
+      this.procent = 100;
+      this.afisare = 'Admin';
     }
     if (this.score >= 0 && this.score < 1000){
       this.level = 1;
@@ -188,7 +188,6 @@ export class MyprofileComponent implements OnInit {
   }
 
   certificat(id): void{
-
     window.open(this.appUrl + 'api/certificat/' + this.FirstName + this.LastName + '/' + id, '_blank');
   }
 }

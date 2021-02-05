@@ -10,12 +10,9 @@
             <img class="picture" src="{{item.imageURL}}" alt="poza">
           </div>
           <div class="pl-2">
-            {{item.title}}
+            <h4 style="height: 180px;">{{item.title}}</h4>
           </div>
-          <div class="cut-text">
-            {{item.description}}
-          </div>
-          <div class="btn-group btn-group-toggle tab" data-toggle="buttons">
+          <div class="btn-group btn-group-toggle tab pl-2" data-toggle="buttons">
             <label class="btn btn-outline-secondary">
               <input routerLink="/article" (click)="onclick(item.id)" type="radio" name="options" id="option1"> View
             </label>

@@ -23,13 +23,15 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
-<div class="container" id="container">
+<div class="container">
 	<div class="form-container sign-in-container">
 		<form #f="ngForm">
 			<h1>Sign in</h1>
 			<input type="email" name="Email" ngModel required #Email="ngModel" class="form-control" id="Email" placeholder="Enter email">
-			<input type="password" name="Password" ngModel required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
-			<button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="Login(f)">Sign In</button>
+      <input type="password" name="Password" ngModel required #Password="ngModel" class="form-control" id="Password" placeholder="Password">
+      <div class="pt-4">
+        <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="Login(f)">Sign In</button>
+      </div>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -46,4 +48,7 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div style="height: 100vh;">
+
 </div>

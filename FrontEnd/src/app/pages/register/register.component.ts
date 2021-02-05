@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         }, 1000);
       },
       error: (err) => {
-        this.toastr.error('Fail');
+        this.toastr.error('Fail!');
       },
     };
 
